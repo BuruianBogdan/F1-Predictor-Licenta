@@ -78,3 +78,6 @@ logs/
 node_modules/
 dist/
 build/
+
+/images/
+/images-lab4/
