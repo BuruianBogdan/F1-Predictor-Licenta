@@ -1,0 +1,4 @@
+-r requirements.txt
+pytest>=8,<10
+selenium>=4.20,<5
+fastf1>=3.5,<4

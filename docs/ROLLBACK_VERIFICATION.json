@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-11",
+  "database_backup": "/Users/bbg/Downloads/F1-Predictor-ISS-Final/database/backups/f1-before-platform-removal-20261011T091955Z.db",
+  "removed_live_tables": [
+    "live_sessions",
+    "live_events",
+    "live_driver_positions",
+    "live_lap_times",
+    "live_tyre_stints",
+    "live_pit_stops",
+    "live_weather",
+    "live_race_control",
+    "live_telemetry",
+    "live_snapshots",
+    "live_prediction_snapshots",
+    "live_provider_health",
+    "live_sync_status"
+  ],
+  "schema_version": 3,
+  "preserved_tables": {
+    "drivers": {
+      "count": 79,
+      "sha256": "718ef623fa6fd23db867a5e5ae3fd4a85c8d4622cce4e517a8f34bf02ec3252e"
+    },
+    "constructors": {
+      "count": 22,
+      "sha256": "01366113738a68f20d07bc634611dc66b3a466bd72e12ff74da9a245c7993df5"
+    },
+    "circuits": {
+      "count": 33,
+      "sha256": "6121c1d548655607ab363f4d6311dff9fb9c74bd863e6747067cb54a3663093c"
+    },
+    "race_results": {
+      "count": 5457,
+      "sha256": "53ae8cb843ac1610d06f16b487aaf6415e2a9bbc81e1e92017665b8decd2ce36"
+    },
+    "races": {
+      "count": 275,
+      "sha256": "6b167f2eca1dbf8aab1c0bd78e396c016e52c0392d06ea709068d79688a35f33"
+    },
+    "race_entries": {
+      "count": 5458,
+      "sha256": "8231a9cf7468c1167ea06fa8bd19274252e9ee3876b5ebf144846f6c7265f96b"
+    },
+    "qualifying_results": {
+      "count": 5458,
+      "sha256": "9b5a086582a9d471f6653dfb8bd9a2622b50704fced9a6013c07a21afac78d6f"
+    },
+    "sprint_results": {
+      "count": 612,
+      "sha256": "5f84926aefe42959fe5ada48a874947a082b615ad67a7c97be654a928f318037"
+    },
+    "standing_snapshots": {
+      "count": 26,
+      "sha256": "06d5cbd04946e392bfff862bb304756102dca36c319ad360f65d2845ba6ad0c1"
+    },
+    "data_sync_runs": {
+      "count": 19,
+      "sha256": "3a0236976a9941304e77815fb86829f3aba7361670c2b57a1402400afc46d192"
+    },
+    "odds_snapshots": {
+      "count": 7,
+      "sha256": "56d264a54a48fbf883c8a527e5a359d2a0a86b54fb1da1b8838f14034be3d6e7"
+    },
+    "driver_media": {
+      "count": 22,
+      "sha256": "666037d4ab5a5a702b7e7c6db7bbacd71a73ec85b4fdda0b119e1b981493e1ca"
+    },
+    "session_data": {
+      "count": 1,
+      "sha256": "652417b3977dcc2886d688be939b657f6e7783887b771a32ca99afc751b24d2c"
+    },
+    "model_metrics": {
+      "count": 2,
+      "sha256": "1ebdfc69d23780abc03acac6ac39ec33c2b75b5bb779477675c25121f8fd1d5d"
+    },
+    "explanation_cache": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "prediction_runs": {
+      "count": 256,
+      "sha256": "e7499d681e87396cc635e31af494567b5b7b63d2eed12e180fcc78f1ac84169f"
+    },
+    "news_articles": {
+      "count": 46,
+      "sha256": "9910042e403ee46d328fe8937937f92f2aa8b6d53195c7575c2cbedf347411d7"
+    },
+    "news_crawl_runs": {
+      "count": 68,
+      "sha256": "4529f8e35350fe03cc23b741567ddd495043779cc9731b596ede78813fefbbec"
+    },
+    "news_automation": {
+      "count": 1,
+      "sha256": "3ad12c1c3617b72b10a6bad19dd61b4b001e7375d26061ba776037572abf3739"
+    },
+    "news_signals": {
+      "count": 1,
+      "sha256": "4f4fd38b88aa24e5109d88b56705ece9ed7097e7e965d515930443824a07a3e7"
+    },
+    "weekend_session_snapshots": {
+      "count": 6,
+      "sha256": "7057c957185a94eb03367f3bfe8bf0e25ee242191101bdef2b1db60620401865"
+    },
+    "weekend_states": {
+      "count": 1,
+      "sha256": "a8040d7ccebb7e2863cde75eec538a884cf927e9ccc1fecce69bc012e500f6ca"
+    }
+  },
+  "all_remaining_records_unchanged": true,
+  "removed_artifact_count": 64,
+  "original_race_control_files_preserved": [
+    "backend-python/services/race_control_service.py",
+    "backend-python/services/race_strategy_service.py",
+    "backend-python/services/track_geometry_service.py",
+    "backend-python/data_sources/public_timing_provider.py",
+    "backend-python/api/race_control_routes.py",
+    "frontend-java/frontend-java/src/main/resources/static/js/race-control.js",
+    "frontend-java/frontend-java/src/main/resources/static/js/race-control-engine.js",
+    "frontend-java/frontend-java/src/main/resources/static/css/race-control.css",
+    "frontend-java/frontend-java/src/main/resources/templates/race-control.html"
+  ],
+  "backend_tests": {
+    "passed": 123,
+    "skipped": 1
+  },
+  "java_tests": 28,
+  "animation_tests": 9,
+  "removed_routes": [
+    "/live-timing",
+    "/screen-timing",
+    "/live-timing/api/**",
+    "/api/live/**"
+  ],
+  "preserved_refresh_route": "/race-control/api/sessions/refresh",
+  "preserved_original_viewer": "/race-control"
+}

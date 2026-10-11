@@ -1,0 +1,77 @@
+{
+  "verified_at": "2026-10-09T16:31:40.986834+00:00",
+  "race_id": 210,
+  "sessions": [
+    {
+      "code": "FP1",
+      "status": "available",
+      "leader": "George Russell"
+    },
+    {
+      "code": "SQ",
+      "status": "available",
+      "leader": "Max Verstappen"
+    },
+    {
+      "code": "SPRINT",
+      "status": "scheduled",
+      "leader": null
+    },
+    {
+      "code": "Q",
+      "status": "scheduled",
+      "leader": null
+    },
+    {
+      "code": "R",
+      "status": "scheduled",
+      "leader": null
+    }
+  ],
+  "snapshot_ids": [
+    1,
+    2
+  ],
+  "race_favourite": "Andrea Kimi Antonelli",
+  "sprint_favourite": "George Russell",
+  "championship_simulations": 5000,
+  "checks": [
+    {
+      "check": "refresh_button_and_automatic_result_reload",
+      "passed": true
+    },
+    {
+      "check": "separate_sprint_forecast_and_eight_points_places",
+      "passed": true
+    },
+    {
+      "check": "live_layout",
+      "width": 320,
+      "passed": true
+    },
+    {
+      "check": "live_layout",
+      "width": 390,
+      "passed": true
+    },
+    {
+      "check": "live_layout",
+      "width": 768,
+      "passed": true
+    },
+    {
+      "check": "live_layout",
+      "width": 1440,
+      "passed": true
+    },
+    {
+      "check": "live_layout",
+      "width": 1920,
+      "passed": true
+    },
+    {
+      "check": "championship_uses_weekend_forecasts",
+      "passed": true
+    }
+  ]
+}

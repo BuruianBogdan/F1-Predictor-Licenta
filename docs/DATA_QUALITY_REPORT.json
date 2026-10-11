@@ -1,0 +1,2314 @@
+{
+  "generated_at": "2026-10-08T12:04:53.539237+00:00",
+  "healthy": true,
+  "seasons": [
+    {
+      "season_year": 2014,
+      "races": 19,
+      "results": 407,
+      "drivers": 24,
+      "constructors": 11
+    },
+    {
+      "season_year": 2015,
+      "races": 19,
+      "results": 378,
+      "drivers": 22,
+      "constructors": 10
+    },
+    {
+      "season_year": 2016,
+      "races": 21,
+      "results": 462,
+      "drivers": 24,
+      "constructors": 11
+    },
+    {
+      "season_year": 2017,
+      "races": 20,
+      "results": 400,
+      "drivers": 25,
+      "constructors": 10
+    },
+    {
+      "season_year": 2018,
+      "races": 21,
+      "results": 420,
+      "drivers": 20,
+      "constructors": 10
+    },
+    {
+      "season_year": 2019,
+      "races": 21,
+      "results": 420,
+      "drivers": 20,
+      "constructors": 10
+    },
+    {
+      "season_year": 2020,
+      "races": 17,
+      "results": 340,
+      "drivers": 23,
+      "constructors": 10
+    },
+    {
+      "season_year": 2021,
+      "races": 22,
+      "results": 440,
+      "drivers": 21,
+      "constructors": 10
+    },
+    {
+      "season_year": 2022,
+      "races": 22,
+      "results": 440,
+      "drivers": 22,
+      "constructors": 10
+    },
+    {
+      "season_year": 2023,
+      "races": 22,
+      "results": 440,
+      "drivers": 22,
+      "constructors": 10
+    },
+    {
+      "season_year": 2024,
+      "races": 24,
+      "results": 479,
+      "drivers": 24,
+      "constructors": 10
+    },
+    {
+      "season_year": 2025,
+      "races": 24,
+      "results": 479,
+      "drivers": 21,
+      "constructors": 10
+    },
+    {
+      "season_year": 2026,
+      "races": 23,
+      "results": 352,
+      "drivers": 23,
+      "constructors": 11
+    }
+  ],
+  "checks": {
+    "missing_grids": 0,
+    "missing_positions": 0,
+    "missing_driver_refs": 0,
+    "missing_constructors": 0,
+    "duplicate_results": 0,
+    "duplicate_races": 0,
+    "future_races_marked_completed": 0,
+    "completed_without_results": 0,
+    "completed_unverified": 0,
+    "orphan_results": 0,
+    "invalid_dates": 0,
+    "unverified_result_rows": 0
+  },
+  "results_per_race": [
+    {
+      "race_id": 217,
+      "season_year": 2014,
+      "round": 1,
+      "race_name": "Australian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 218,
+      "season_year": 2014,
+      "round": 2,
+      "race_name": "Malaysian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 219,
+      "season_year": 2014,
+      "round": 3,
+      "race_name": "Bahrain Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 220,
+      "season_year": 2014,
+      "round": 4,
+      "race_name": "Chinese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 221,
+      "season_year": 2014,
+      "round": 5,
+      "race_name": "Spanish Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 222,
+      "season_year": 2014,
+      "round": 6,
+      "race_name": "Monaco Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 223,
+      "season_year": 2014,
+      "round": 7,
+      "race_name": "Canadian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 224,
+      "season_year": 2014,
+      "round": 8,
+      "race_name": "Austrian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 225,
+      "season_year": 2014,
+      "round": 9,
+      "race_name": "British Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 226,
+      "season_year": 2014,
+      "round": 10,
+      "race_name": "German Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 227,
+      "season_year": 2014,
+      "round": 11,
+      "race_name": "Hungarian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 228,
+      "season_year": 2014,
+      "round": 12,
+      "race_name": "Belgian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 229,
+      "season_year": 2014,
+      "round": 13,
+      "race_name": "Italian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 230,
+      "season_year": 2014,
+      "round": 14,
+      "race_name": "Singapore Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 231,
+      "season_year": 2014,
+      "round": 15,
+      "race_name": "Japanese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 232,
+      "season_year": 2014,
+      "round": 16,
+      "race_name": "Russian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 21
+    },
+    {
+      "race_id": 233,
+      "season_year": 2014,
+      "round": 17,
+      "race_name": "United States Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 18
+    },
+    {
+      "race_id": 234,
+      "season_year": 2014,
+      "round": 18,
+      "race_name": "Brazilian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 18
+    },
+    {
+      "race_id": 235,
+      "season_year": 2014,
+      "round": 19,
+      "race_name": "Abu Dhabi Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 236,
+      "season_year": 2015,
+      "round": 1,
+      "race_name": "Australian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 18
+    },
+    {
+      "race_id": 237,
+      "season_year": 2015,
+      "round": 2,
+      "race_name": "Malaysian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 238,
+      "season_year": 2015,
+      "round": 3,
+      "race_name": "Chinese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 239,
+      "season_year": 2015,
+      "round": 4,
+      "race_name": "Bahrain Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 240,
+      "season_year": 2015,
+      "round": 5,
+      "race_name": "Spanish Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 241,
+      "season_year": 2015,
+      "round": 6,
+      "race_name": "Monaco Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 242,
+      "season_year": 2015,
+      "round": 7,
+      "race_name": "Canadian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 243,
+      "season_year": 2015,
+      "round": 8,
+      "race_name": "Austrian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 244,
+      "season_year": 2015,
+      "round": 9,
+      "race_name": "British Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 245,
+      "season_year": 2015,
+      "round": 10,
+      "race_name": "Hungarian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 246,
+      "season_year": 2015,
+      "round": 11,
+      "race_name": "Belgian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 247,
+      "season_year": 2015,
+      "round": 12,
+      "race_name": "Italian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 248,
+      "season_year": 2015,
+      "round": 13,
+      "race_name": "Singapore Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 249,
+      "season_year": 2015,
+      "round": 14,
+      "race_name": "Japanese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 250,
+      "season_year": 2015,
+      "round": 15,
+      "race_name": "Russian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 251,
+      "season_year": 2015,
+      "round": 16,
+      "race_name": "United States Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 252,
+      "season_year": 2015,
+      "round": 17,
+      "race_name": "Mexican Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 253,
+      "season_year": 2015,
+      "round": 18,
+      "race_name": "Brazilian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 254,
+      "season_year": 2015,
+      "round": 19,
+      "race_name": "Abu Dhabi Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 255,
+      "season_year": 2016,
+      "round": 1,
+      "race_name": "Australian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 256,
+      "season_year": 2016,
+      "round": 2,
+      "race_name": "Bahrain Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 257,
+      "season_year": 2016,
+      "round": 3,
+      "race_name": "Chinese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 258,
+      "season_year": 2016,
+      "round": 4,
+      "race_name": "Russian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 259,
+      "season_year": 2016,
+      "round": 5,
+      "race_name": "Spanish Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 260,
+      "season_year": 2016,
+      "round": 6,
+      "race_name": "Monaco Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 261,
+      "season_year": 2016,
+      "round": 7,
+      "race_name": "Canadian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 262,
+      "season_year": 2016,
+      "round": 8,
+      "race_name": "European Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 263,
+      "season_year": 2016,
+      "round": 9,
+      "race_name": "Austrian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 264,
+      "season_year": 2016,
+      "round": 10,
+      "race_name": "British Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 265,
+      "season_year": 2016,
+      "round": 11,
+      "race_name": "Hungarian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 266,
+      "season_year": 2016,
+      "round": 12,
+      "race_name": "German Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 267,
+      "season_year": 2016,
+      "round": 13,
+      "race_name": "Belgian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 268,
+      "season_year": 2016,
+      "round": 14,
+      "race_name": "Italian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 269,
+      "season_year": 2016,
+      "round": 15,
+      "race_name": "Singapore Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 270,
+      "season_year": 2016,
+      "round": 16,
+      "race_name": "Malaysian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 271,
+      "season_year": 2016,
+      "round": 17,
+      "race_name": "Japanese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 272,
+      "season_year": 2016,
+      "round": 18,
+      "race_name": "United States Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 273,
+      "season_year": 2016,
+      "round": 19,
+      "race_name": "Mexican Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 274,
+      "season_year": 2016,
+      "round": 20,
+      "race_name": "Brazilian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 275,
+      "season_year": 2016,
+      "round": 21,
+      "race_name": "Abu Dhabi Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 132,
+      "season_year": 2017,
+      "round": 1,
+      "race_name": "Australian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 133,
+      "season_year": 2017,
+      "round": 2,
+      "race_name": "Chinese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 134,
+      "season_year": 2017,
+      "round": 3,
+      "race_name": "Bahrain Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 135,
+      "season_year": 2017,
+      "round": 4,
+      "race_name": "Russian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 136,
+      "season_year": 2017,
+      "round": 5,
+      "race_name": "Spanish Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 137,
+      "season_year": 2017,
+      "round": 6,
+      "race_name": "Monaco Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 138,
+      "season_year": 2017,
+      "round": 7,
+      "race_name": "Canadian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 139,
+      "season_year": 2017,
+      "round": 8,
+      "race_name": "Azerbaijan Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 140,
+      "season_year": 2017,
+      "round": 9,
+      "race_name": "Austrian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 141,
+      "season_year": 2017,
+      "round": 10,
+      "race_name": "British Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 142,
+      "season_year": 2017,
+      "round": 11,
+      "race_name": "Hungarian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 143,
+      "season_year": 2017,
+      "round": 12,
+      "race_name": "Belgian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 144,
+      "season_year": 2017,
+      "round": 13,
+      "race_name": "Italian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 145,
+      "season_year": 2017,
+      "round": 14,
+      "race_name": "Singapore Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 146,
+      "season_year": 2017,
+      "round": 15,
+      "race_name": "Malaysian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 147,
+      "season_year": 2017,
+      "round": 16,
+      "race_name": "Japanese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 148,
+      "season_year": 2017,
+      "round": 17,
+      "race_name": "United States Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 149,
+      "season_year": 2017,
+      "round": 18,
+      "race_name": "Mexican Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 150,
+      "season_year": 2017,
+      "round": 19,
+      "race_name": "Brazilian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 151,
+      "season_year": 2017,
+      "round": 20,
+      "race_name": "Abu Dhabi Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 152,
+      "season_year": 2018,
+      "round": 1,
+      "race_name": "Australian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 153,
+      "season_year": 2018,
+      "round": 2,
+      "race_name": "Bahrain Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 154,
+      "season_year": 2018,
+      "round": 3,
+      "race_name": "Chinese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 155,
+      "season_year": 2018,
+      "round": 4,
+      "race_name": "Azerbaijan Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 156,
+      "season_year": 2018,
+      "round": 5,
+      "race_name": "Spanish Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 157,
+      "season_year": 2018,
+      "round": 6,
+      "race_name": "Monaco Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 158,
+      "season_year": 2018,
+      "round": 7,
+      "race_name": "Canadian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 159,
+      "season_year": 2018,
+      "round": 8,
+      "race_name": "French Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 160,
+      "season_year": 2018,
+      "round": 9,
+      "race_name": "Austrian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 161,
+      "season_year": 2018,
+      "round": 10,
+      "race_name": "British Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 162,
+      "season_year": 2018,
+      "round": 11,
+      "race_name": "German Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 163,
+      "season_year": 2018,
+      "round": 12,
+      "race_name": "Hungarian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 164,
+      "season_year": 2018,
+      "round": 13,
+      "race_name": "Belgian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 165,
+      "season_year": 2018,
+      "round": 14,
+      "race_name": "Italian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 166,
+      "season_year": 2018,
+      "round": 15,
+      "race_name": "Singapore Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 167,
+      "season_year": 2018,
+      "round": 16,
+      "race_name": "Russian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 168,
+      "season_year": 2018,
+      "round": 17,
+      "race_name": "Japanese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 169,
+      "season_year": 2018,
+      "round": 18,
+      "race_name": "United States Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 170,
+      "season_year": 2018,
+      "round": 19,
+      "race_name": "Mexican Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 171,
+      "season_year": 2018,
+      "round": 20,
+      "race_name": "Brazilian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 172,
+      "season_year": 2018,
+      "round": 21,
+      "race_name": "Abu Dhabi Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 173,
+      "season_year": 2019,
+      "round": 1,
+      "race_name": "Australian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 174,
+      "season_year": 2019,
+      "round": 2,
+      "race_name": "Bahrain Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 175,
+      "season_year": 2019,
+      "round": 3,
+      "race_name": "Chinese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 176,
+      "season_year": 2019,
+      "round": 4,
+      "race_name": "Azerbaijan Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 177,
+      "season_year": 2019,
+      "round": 5,
+      "race_name": "Spanish Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 178,
+      "season_year": 2019,
+      "round": 6,
+      "race_name": "Monaco Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 179,
+      "season_year": 2019,
+      "round": 7,
+      "race_name": "Canadian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 180,
+      "season_year": 2019,
+      "round": 8,
+      "race_name": "French Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 181,
+      "season_year": 2019,
+      "round": 9,
+      "race_name": "Austrian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 182,
+      "season_year": 2019,
+      "round": 10,
+      "race_name": "British Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 183,
+      "season_year": 2019,
+      "round": 11,
+      "race_name": "German Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 184,
+      "season_year": 2019,
+      "round": 12,
+      "race_name": "Hungarian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 185,
+      "season_year": 2019,
+      "round": 13,
+      "race_name": "Belgian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 186,
+      "season_year": 2019,
+      "round": 14,
+      "race_name": "Italian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 187,
+      "season_year": 2019,
+      "round": 15,
+      "race_name": "Singapore Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 188,
+      "season_year": 2019,
+      "round": 16,
+      "race_name": "Russian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 189,
+      "season_year": 2019,
+      "round": 17,
+      "race_name": "Japanese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 190,
+      "season_year": 2019,
+      "round": 18,
+      "race_name": "Mexican Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 191,
+      "season_year": 2019,
+      "round": 19,
+      "race_name": "United States Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 192,
+      "season_year": 2019,
+      "round": 20,
+      "race_name": "Brazilian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 193,
+      "season_year": 2019,
+      "round": 21,
+      "race_name": "Abu Dhabi Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 1,
+      "season_year": 2020,
+      "round": 1,
+      "race_name": "Austrian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 2,
+      "season_year": 2020,
+      "round": 2,
+      "race_name": "Styrian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 3,
+      "season_year": 2020,
+      "round": 3,
+      "race_name": "Hungarian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 4,
+      "season_year": 2020,
+      "round": 4,
+      "race_name": "British Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 5,
+      "season_year": 2020,
+      "round": 5,
+      "race_name": "70th Anniversary Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 6,
+      "season_year": 2020,
+      "round": 6,
+      "race_name": "Spanish Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 7,
+      "season_year": 2020,
+      "round": 7,
+      "race_name": "Belgian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 8,
+      "season_year": 2020,
+      "round": 8,
+      "race_name": "Italian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 9,
+      "season_year": 2020,
+      "round": 9,
+      "race_name": "Tuscan Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 10,
+      "season_year": 2020,
+      "round": 10,
+      "race_name": "Russian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 11,
+      "season_year": 2020,
+      "round": 11,
+      "race_name": "Eifel Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 12,
+      "season_year": 2020,
+      "round": 12,
+      "race_name": "Portuguese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 13,
+      "season_year": 2020,
+      "round": 13,
+      "race_name": "Emilia Romagna Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 14,
+      "season_year": 2020,
+      "round": 14,
+      "race_name": "Turkish Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 15,
+      "season_year": 2020,
+      "round": 15,
+      "race_name": "Bahrain Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 16,
+      "season_year": 2020,
+      "round": 16,
+      "race_name": "Sakhir Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 17,
+      "season_year": 2020,
+      "round": 17,
+      "race_name": "Abu Dhabi Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 18,
+      "season_year": 2021,
+      "round": 1,
+      "race_name": "Bahrain Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 19,
+      "season_year": 2021,
+      "round": 2,
+      "race_name": "Emilia Romagna Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 20,
+      "season_year": 2021,
+      "round": 3,
+      "race_name": "Portuguese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 21,
+      "season_year": 2021,
+      "round": 4,
+      "race_name": "Spanish Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 22,
+      "season_year": 2021,
+      "round": 5,
+      "race_name": "Monaco Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 23,
+      "season_year": 2021,
+      "round": 6,
+      "race_name": "Azerbaijan Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 24,
+      "season_year": 2021,
+      "round": 7,
+      "race_name": "French Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 25,
+      "season_year": 2021,
+      "round": 8,
+      "race_name": "Styrian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 26,
+      "season_year": 2021,
+      "round": 9,
+      "race_name": "Austrian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 27,
+      "season_year": 2021,
+      "round": 10,
+      "race_name": "British Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 28,
+      "season_year": 2021,
+      "round": 11,
+      "race_name": "Hungarian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 29,
+      "season_year": 2021,
+      "round": 12,
+      "race_name": "Belgian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 30,
+      "season_year": 2021,
+      "round": 13,
+      "race_name": "Dutch Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 31,
+      "season_year": 2021,
+      "round": 14,
+      "race_name": "Italian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 32,
+      "season_year": 2021,
+      "round": 15,
+      "race_name": "Russian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 33,
+      "season_year": 2021,
+      "round": 16,
+      "race_name": "Turkish Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 34,
+      "season_year": 2021,
+      "round": 17,
+      "race_name": "United States Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 35,
+      "season_year": 2021,
+      "round": 18,
+      "race_name": "Mexico City Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 36,
+      "season_year": 2021,
+      "round": 19,
+      "race_name": "S\u00e3o Paulo Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 37,
+      "season_year": 2021,
+      "round": 20,
+      "race_name": "Qatar Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 38,
+      "season_year": 2021,
+      "round": 21,
+      "race_name": "Saudi Arabian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 39,
+      "season_year": 2021,
+      "round": 22,
+      "race_name": "Abu Dhabi Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 40,
+      "season_year": 2022,
+      "round": 1,
+      "race_name": "Bahrain Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 41,
+      "season_year": 2022,
+      "round": 2,
+      "race_name": "Saudi Arabian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 42,
+      "season_year": 2022,
+      "round": 3,
+      "race_name": "Australian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 43,
+      "season_year": 2022,
+      "round": 4,
+      "race_name": "Emilia Romagna Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 44,
+      "season_year": 2022,
+      "round": 5,
+      "race_name": "Miami Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 45,
+      "season_year": 2022,
+      "round": 6,
+      "race_name": "Spanish Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 46,
+      "season_year": 2022,
+      "round": 7,
+      "race_name": "Monaco Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 47,
+      "season_year": 2022,
+      "round": 8,
+      "race_name": "Azerbaijan Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 48,
+      "season_year": 2022,
+      "round": 9,
+      "race_name": "Canadian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 49,
+      "season_year": 2022,
+      "round": 10,
+      "race_name": "British Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 50,
+      "season_year": 2022,
+      "round": 11,
+      "race_name": "Austrian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 51,
+      "season_year": 2022,
+      "round": 12,
+      "race_name": "French Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 52,
+      "season_year": 2022,
+      "round": 13,
+      "race_name": "Hungarian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 53,
+      "season_year": 2022,
+      "round": 14,
+      "race_name": "Belgian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 54,
+      "season_year": 2022,
+      "round": 15,
+      "race_name": "Dutch Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 55,
+      "season_year": 2022,
+      "round": 16,
+      "race_name": "Italian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 56,
+      "season_year": 2022,
+      "round": 17,
+      "race_name": "Singapore Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 57,
+      "season_year": 2022,
+      "round": 18,
+      "race_name": "Japanese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 58,
+      "season_year": 2022,
+      "round": 19,
+      "race_name": "United States Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 59,
+      "season_year": 2022,
+      "round": 20,
+      "race_name": "Mexico City Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 60,
+      "season_year": 2022,
+      "round": 21,
+      "race_name": "S\u00e3o Paulo Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 61,
+      "season_year": 2022,
+      "round": 22,
+      "race_name": "Abu Dhabi Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 62,
+      "season_year": 2023,
+      "round": 1,
+      "race_name": "Bahrain Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 63,
+      "season_year": 2023,
+      "round": 2,
+      "race_name": "Saudi Arabian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 64,
+      "season_year": 2023,
+      "round": 3,
+      "race_name": "Australian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 65,
+      "season_year": 2023,
+      "round": 4,
+      "race_name": "Azerbaijan Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 66,
+      "season_year": 2023,
+      "round": 5,
+      "race_name": "Miami Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 67,
+      "season_year": 2023,
+      "round": 6,
+      "race_name": "Monaco Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 68,
+      "season_year": 2023,
+      "round": 7,
+      "race_name": "Spanish Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 69,
+      "season_year": 2023,
+      "round": 8,
+      "race_name": "Canadian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 70,
+      "season_year": 2023,
+      "round": 9,
+      "race_name": "Austrian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 71,
+      "season_year": 2023,
+      "round": 10,
+      "race_name": "British Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 72,
+      "season_year": 2023,
+      "round": 11,
+      "race_name": "Hungarian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 73,
+      "season_year": 2023,
+      "round": 12,
+      "race_name": "Belgian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 74,
+      "season_year": 2023,
+      "round": 13,
+      "race_name": "Dutch Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 75,
+      "season_year": 2023,
+      "round": 14,
+      "race_name": "Italian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 76,
+      "season_year": 2023,
+      "round": 15,
+      "race_name": "Singapore Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 77,
+      "season_year": 2023,
+      "round": 16,
+      "race_name": "Japanese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 78,
+      "season_year": 2023,
+      "round": 17,
+      "race_name": "Qatar Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 79,
+      "season_year": 2023,
+      "round": 18,
+      "race_name": "United States Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 80,
+      "season_year": 2023,
+      "round": 19,
+      "race_name": "Mexico City Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 81,
+      "season_year": 2023,
+      "round": 20,
+      "race_name": "S\u00e3o Paulo Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 82,
+      "season_year": 2023,
+      "round": 21,
+      "race_name": "Las Vegas Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 83,
+      "season_year": 2023,
+      "round": 22,
+      "race_name": "Abu Dhabi Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 84,
+      "season_year": 2024,
+      "round": 1,
+      "race_name": "Bahrain Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 85,
+      "season_year": 2024,
+      "round": 2,
+      "race_name": "Saudi Arabian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 86,
+      "season_year": 2024,
+      "round": 3,
+      "race_name": "Australian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 19
+    },
+    {
+      "race_id": 87,
+      "season_year": 2024,
+      "round": 4,
+      "race_name": "Japanese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 88,
+      "season_year": 2024,
+      "round": 5,
+      "race_name": "Chinese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 89,
+      "season_year": 2024,
+      "round": 6,
+      "race_name": "Miami Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 90,
+      "season_year": 2024,
+      "round": 7,
+      "race_name": "Emilia Romagna Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 91,
+      "season_year": 2024,
+      "round": 8,
+      "race_name": "Monaco Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 92,
+      "season_year": 2024,
+      "round": 9,
+      "race_name": "Canadian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 93,
+      "season_year": 2024,
+      "round": 10,
+      "race_name": "Spanish Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 94,
+      "season_year": 2024,
+      "round": 11,
+      "race_name": "Austrian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 95,
+      "season_year": 2024,
+      "round": 12,
+      "race_name": "British Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 96,
+      "season_year": 2024,
+      "round": 13,
+      "race_name": "Hungarian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 97,
+      "season_year": 2024,
+      "round": 14,
+      "race_name": "Belgian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 98,
+      "season_year": 2024,
+      "round": 15,
+      "race_name": "Dutch Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 99,
+      "season_year": 2024,
+      "round": 16,
+      "race_name": "Italian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 100,
+      "season_year": 2024,
+      "round": 17,
+      "race_name": "Azerbaijan Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 101,
+      "season_year": 2024,
+      "round": 18,
+      "race_name": "Singapore Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 102,
+      "season_year": 2024,
+      "round": 19,
+      "race_name": "United States Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 103,
+      "season_year": 2024,
+      "round": 20,
+      "race_name": "Mexico City Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 104,
+      "season_year": 2024,
+      "round": 21,
+      "race_name": "S\u00e3o Paulo Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 105,
+      "season_year": 2024,
+      "round": 22,
+      "race_name": "Las Vegas Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 106,
+      "season_year": 2024,
+      "round": 23,
+      "race_name": "Qatar Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 107,
+      "season_year": 2024,
+      "round": 24,
+      "race_name": "Abu Dhabi Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 108,
+      "season_year": 2025,
+      "round": 1,
+      "race_name": "Australian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 109,
+      "season_year": 2025,
+      "round": 2,
+      "race_name": "Chinese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 110,
+      "season_year": 2025,
+      "round": 3,
+      "race_name": "Japanese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 111,
+      "season_year": 2025,
+      "round": 4,
+      "race_name": "Bahrain Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 112,
+      "season_year": 2025,
+      "round": 5,
+      "race_name": "Saudi Arabian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 113,
+      "season_year": 2025,
+      "round": 6,
+      "race_name": "Miami Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 114,
+      "season_year": 2025,
+      "round": 7,
+      "race_name": "Emilia Romagna Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 115,
+      "season_year": 2025,
+      "round": 8,
+      "race_name": "Monaco Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 116,
+      "season_year": 2025,
+      "round": 9,
+      "race_name": "Spanish Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 19
+    },
+    {
+      "race_id": 117,
+      "season_year": 2025,
+      "round": 10,
+      "race_name": "Canadian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 118,
+      "season_year": 2025,
+      "round": 11,
+      "race_name": "Austrian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 119,
+      "season_year": 2025,
+      "round": 12,
+      "race_name": "British Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 120,
+      "season_year": 2025,
+      "round": 13,
+      "race_name": "Belgian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 121,
+      "season_year": 2025,
+      "round": 14,
+      "race_name": "Hungarian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 122,
+      "season_year": 2025,
+      "round": 15,
+      "race_name": "Dutch Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 123,
+      "season_year": 2025,
+      "round": 16,
+      "race_name": "Italian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 124,
+      "season_year": 2025,
+      "round": 17,
+      "race_name": "Azerbaijan Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 125,
+      "season_year": 2025,
+      "round": 18,
+      "race_name": "Singapore Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 126,
+      "season_year": 2025,
+      "round": 19,
+      "race_name": "United States Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 127,
+      "season_year": 2025,
+      "round": 20,
+      "race_name": "Mexico City Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 128,
+      "season_year": 2025,
+      "round": 21,
+      "race_name": "S\u00e3o Paulo Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 129,
+      "season_year": 2025,
+      "round": 22,
+      "race_name": "Las Vegas Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 130,
+      "season_year": 2025,
+      "round": 23,
+      "race_name": "Qatar Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 131,
+      "season_year": 2025,
+      "round": 24,
+      "race_name": "Abu Dhabi Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 20
+    },
+    {
+      "race_id": 194,
+      "season_year": 2026,
+      "round": 1,
+      "race_name": "Australian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 195,
+      "season_year": 2026,
+      "round": 2,
+      "race_name": "Chinese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 196,
+      "season_year": 2026,
+      "round": 3,
+      "race_name": "Japanese Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 197,
+      "season_year": 2026,
+      "round": 4,
+      "race_name": "Miami Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 198,
+      "season_year": 2026,
+      "round": 5,
+      "race_name": "Canadian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 199,
+      "season_year": 2026,
+      "round": 6,
+      "race_name": "Monaco Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 200,
+      "season_year": 2026,
+      "round": 7,
+      "race_name": "Barcelona Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 201,
+      "season_year": 2026,
+      "round": 8,
+      "race_name": "Austrian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 202,
+      "season_year": 2026,
+      "round": 9,
+      "race_name": "British Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 203,
+      "season_year": 2026,
+      "round": 10,
+      "race_name": "Belgian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 204,
+      "season_year": 2026,
+      "round": 11,
+      "race_name": "Hungarian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 205,
+      "season_year": 2026,
+      "round": 12,
+      "race_name": "Dutch Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 206,
+      "season_year": 2026,
+      "round": 13,
+      "race_name": "Italian Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 207,
+      "season_year": 2026,
+      "round": 14,
+      "race_name": "Spanish Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 208,
+      "season_year": 2026,
+      "round": 15,
+      "race_name": "Azerbaijan Grand Prix",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 209,
+      "season_year": 2026,
+      "round": 16,
+      "race_name": "Bahrain Grand Prix in Malaysia",
+      "race_status": "COMPLETED",
+      "results": 22
+    },
+    {
+      "race_id": 210,
+      "season_year": 2026,
+      "round": 17,
+      "race_name": "Singapore Grand Prix",
+      "race_status": "SCHEDULED",
+      "results": 0
+    },
+    {
+      "race_id": 211,
+      "season_year": 2026,
+      "round": 18,
+      "race_name": "United States Grand Prix",
+      "race_status": "SCHEDULED",
+      "results": 0
+    },
+    {
+      "race_id": 212,
+      "season_year": 2026,
+      "round": 19,
+      "race_name": "Mexico City Grand Prix",
+      "race_status": "SCHEDULED",
+      "results": 0
+    },
+    {
+      "race_id": 213,
+      "season_year": 2026,
+      "round": 20,
+      "race_name": "Brazilian Grand Prix",
+      "race_status": "SCHEDULED",
+      "results": 0
+    },
+    {
+      "race_id": 214,
+      "season_year": 2026,
+      "round": 21,
+      "race_name": "Las Vegas Grand Prix",
+      "race_status": "SCHEDULED",
+      "results": 0
+    },
+    {
+      "race_id": 215,
+      "season_year": 2026,
+      "round": 22,
+      "race_name": "Qatar Grand Prix",
+      "race_status": "SCHEDULED",
+      "results": 0
+    },
+    {
+      "race_id": 216,
+      "season_year": 2026,
+      "round": 23,
+      "race_name": "Abu Dhabi Grand Prix",
+      "race_status": "SCHEDULED",
+      "results": 0
+    }
+  ],
+  "foreign_key_violations": []
+}

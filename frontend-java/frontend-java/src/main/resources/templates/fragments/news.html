@@ -1,0 +1,10 @@
+<!DOCTYPE html><html xmlns:th="http://www.thymeleaf.org"><body>
+<article th:fragment="card(a)" class="news-card">
+<a class="news-image" th:href="${a['source_url']}" target="_blank" rel="noopener noreferrer"><img th:src="${a['image_url'] ?: '/images/calendar-night.png'}" th:alt="${a['source_title']}" loading="lazy" onerror="this.onerror=null;this.src='/images/calendar-night.png'"/><span class="image-source" th:text="${a['image_url'] != null ? 'FORMULA 1' : 'AI CIRCUIT ART'}"></span><span class="image-arrow">↗</span></a>
+<div class="news-copy"><div class="news-meta"><time th:text="${#strings.substring(a['published_at'],0,10)}" th:attr="datetime=${a['published_at']}"></time><span th:if="${!#lists.isEmpty(a['signals'])}" class="news-signal-badge" data-i18n="news.signal">FORECAST SIGNAL</span><span th:unless="${!#lists.isEmpty(a['signals'])}" data-i18n="news.paddock">PADDOCK</span></div>
+<h2><a th:href="${a['source_url']}" target="_blank" rel="noopener noreferrer" th:text="${a['title']}"></a></h2>
+<p th:if="${a['summary_status']=='rewritten'}" th:text="${a['summary']}"></p><p th:unless="${a['summary_status']=='rewritten'}" class="muted" data-i18n="news.pending">Local summary pending. Read the original article for the complete story.</p>
+<div class="news-card-footer"><span th:text="${a['summary_status']=='rewritten' ? 'AI BRIEF · '+a['summary_model'] : 'ORIGINAL HEADLINE'}"></span><a th:href="${a['source_url']}" target="_blank" rel="noopener noreferrer" data-i18n="news.original">Read source ↗</a></div>
+<details th:if="${!#lists.isEmpty(a['signals'])}" class="news-evidence"><summary data-i18n="news.impact">How this affects the forecast</summary><div th:each="signal:${a['signals']}"><p th:text="${signal['evidence']}"></p><p class="muted">Confirmed grid penalty · experimental log-weight −0.12, applied only to the named race before its cutoff.</p><a class="text-link" th:href="@{/predictions(raceId=${signal['race_id']})}" data-i18n="run.forecast">Build a race forecast →</a></div></details>
+</div></article>
+</body></html>

@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-11",
+  "backend": {
+    "passed": 123,
+    "skipped": 1,
+    "reason": "Real Chrome fixture opt-in; separately executed"
+  },
+  "selenium_fixture": {
+    "passed": 3,
+    "browser": "real headless Chrome"
+  },
+  "frontend": [
+    {
+      "name": "com.f1predictor.frontendjava.FrontendJavaApplicationTests",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.f1predictor.frontendjava.FrontendRenderingTests",
+      "tests": "27",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "schema_reference": "executed successfully in temporary SQLite",
+  "e2e_report": "E2E_VERIFICATION.json",
+  "exports": {
+    "passed": [
+      "race.csv",
+      "champion.csv",
+      "history.csv",
+      "metrics.csv",
+      "report.txt"
+    ],
+    "status": 200
+  },
+  "entity_404": "Structured NOT_FOUND response verified against live backend",
+  "live_enrichment": {
+    "fastf1": {
+      "race_id": 209,
+      "results": 22,
+      "weather_samples": 254,
+      "telemetry_loaded": false
+    },
+    "openf1": {
+      "session_key": 11731,
+      "media_records": 22
+    }
+  },
+  "qualifying_regression": "Typed validation, availability cutoff, preserved form/odds, real outages handled separately",
+  "responsive_ui": {
+    "checks": 30,
+    "widths": [
+      320,
+      390,
+      768,
+      1440,
+      1920
+    ],
+    "report": "UI_LAYOUT_VERIFICATION.json",
+    "assertions": [
+      "No horizontal page overflow",
+      "News images remain inside their card frames"
+    ]
+  },
+  "news_report": "NEWS_VERIFICATION.json",
+  "news": {
+    "source": "Formula1.com",
+    "crawler": "Real Chrome / Selenium",
+    "articles": 12,
+    "rewritten": 12,
+    "pending": 0,
+    "language": "en",
+    "model": "qwen3:4b-instruct",
+    "latest_run": "SUCCESS",
+    "automatic_interval_minutes": 30
+  },
+  "live_weekend_report": "LIVE_WEEKEND_VERIFICATION.json",
+  "live_weekend": {
+    "report": "LIVE_WEEKEND_VERIFICATION.json",
+    "sessions": [
+      "FP1",
+      "SQ"
+    ],
+    "separate_sprint_prediction": true,
+    "button_reload": true,
+    "viewport_widths": [
+      320,
+      390,
+      768,
+      1440,
+      1920
+    ],
+    "championship_page_uses_saved_update": true
+  },
+  "race_control": "RACE_CONTROL_VERIFICATION.json",
+  "animation_engine": {
+    "passed": 9,
+    "command": "node --test scripts/tests/race-control-engine.test.js"
+  },
+  "race_strategy": "RACE_STRATEGY_VERIFICATION.json",
+  "track_map": {
+    "report": "TRACK_MAP_VERIFICATION.json",
+    "backend_geometry_tests": 6,
+    "animation_tests": 9,
+    "source": "Actual Singapore FP1/SQ and Malaysian GP archive",
+    "viewport_widths": [
+      320,
+      390,
+      768,
+      1440,
+      1920
+    ]
+  },
+  "session_refresh": {
+    "report": "SESSION_REFRESH_VERIFICATION.json",
+    "backend_regressions": 8,
+    "route": "/race-control/api/sessions/refresh",
+    "independent_of_removed_modules": true
+  },
+  "rollback": {
+    "report": "ROLLBACK_VERIFICATION.json",
+    "schema_version": 3,
+    "original_gp_results_preserved": 5457,
+    "removed_extension_tables": 13,
+    "remaining_table_records_identical_at_removal": true,
+    "old_race_control_files_unchanged": 9
+  }
+}

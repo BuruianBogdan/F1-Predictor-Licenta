@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>What-If Simulator</title><link rel="stylesheet" th:href="@{/css/style.css}"/></head>
+<body>
+<div th:replace="~{fragments/layout :: track-bg}"></div>
+<div th:replace="~{fragments/layout :: navbar}"></div>
+<div class="container">
+  <h1>What-If Simulator</h1>
+  <p class="small-text">CU-13 — define hypothetical scenarios and compare against the baseline prediction.</p>
+
+  <form method="post" th:action="@{/simulator/create}" class="form-card" data-spinner>
+    <div><label>Name</label><input type="text" name="name" required/></div>
+    <div><label>Race ID (default: next race)</label><input type="number" name="target_race_id"/></div>
+    <div><label>Driver ID (optional)</label><input type="number" name="driver_id"/></div>
+    <div><label>Constructor ID (optional)</label><input type="number" name="constructor_id"/></div>
+    <div><label>Pace Δ (−5 … +5)</label><input type="number" step="0.1" name="pace_delta" value="0"/></div>
+    <div><label>Reliability Δ</label><input type="number" step="0.1" name="reliability_delta" value="0"/></div>
+    <div><label>DNF Risk Δ</label><input type="number" step="0.1" name="dnf_risk_delta" value="0"/></div>
+    <div><label>Hypothetical qualifying position</label><input type="number" name="grid_position" min="1" max="24"/></div><label class="toggle-label"><input type="checkbox" name="wet_race"/>Wet-race uncertainty</label><div style="grid-column: 1 / -1"><label>Notes</label><textarea name="notes" rows="2"></textarea></div>
+    <button type="submit">Create Scenario</button>
+  </form>
+
+  <div class="section">
+    <h2>Scenarios</h2>
+    <table>
+      <thead><tr><th>Name</th><th>Race</th><th>Driver</th><th>Pace Δ</th><th>Rel Δ</th><th>DNF Δ</th><th>Actions</th></tr></thead>
+      <tbody>
+        <tr th:each="s : ${scenarios}">
+          <td th:text="${s['name']}"></td>
+          <td th:text="${s['target_race_id']}"></td>
+          <td th:text="${s['driver_id']}"></td>
+          <td th:text="${s['pace_delta']}"></td>
+          <td th:text="${s['reliability_delta']}"></td>
+          <td th:text="${s['dnf_risk_delta']}"></td>
+          <td>
+            <form style="display:inline" method="post" th:action="@{'/simulator/run/' + ${s['id']}}"><button>Run</button></form>
+            <form style="display:inline" method="post" th:action="@{'/simulator/delete/' + ${s['id']}}"><button class="btn-secondary">Delete</button></form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section" th:if="${runResult != null and runResult['diff'] != null}">
+    <h2>Scenario vs Baseline (top deltas)</h2>
+    <table>
+      <thead><tr><th>Driver</th><th>Baseline %</th><th>Scenario %</th><th>Δ percentage points</th></tr></thead>
+      <tbody>
+        <tr th:each="d : ${runResult['diff']}">
+          <td th:text="${d['driver_name']}"></td>
+          <td th:text="${d['baseline_score']}"></td>
+          <td th:text="${d['scenario_score']}"></td>
+          <td th:classappend="${d['delta'] > 0} ? 'delta-pos' : (${d['delta'] < 0} ? 'delta-neg' : '')"
+              th:text="${d['delta']}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script th:src="@{/js/app.js}"></script>
+</body></html>

@@ -1,0 +1,64 @@
+{
+  "status": "trained",
+  "model_version": "logistic-sigmoid-v2-pre_weekend-through-2025",
+  "trained_at": "2026-10-07T07:37:17.198535+00:00",
+  "training_period": [
+    "2014-03-16",
+    "2025-12-07"
+  ],
+  "training_cutoff": "2025-12-08T00:00:00+00:00",
+  "feature_mode": "PRE_WEEKEND",
+  "production_algorithm": "logistic",
+  "selection_policy": "Logistic preselected for simplicity; gradient boosting reported as a benchmark, not selected on test scores",
+  "summary": {
+    "baseline": {
+      "top1_accuracy": 0.45652173913043476,
+      "top3_coverage": 0.7282608695652174,
+      "podium_precision": 0.5326086956521738,
+      "podium_recall": 0.5326086956521738,
+      "position_mae": 3.893592677345538,
+      "spearman": 0.5775907159202353,
+      "brier_score": 0.03641856509760551,
+      "race_log_loss": 1.6868356936222022,
+      "binary_log_loss": 0.12641269729209142,
+      "calibration_ece": 0.01829240858524362,
+      "races": 92
+    },
+    "logistic": {
+      "top1_accuracy": 0.5,
+      "top3_coverage": 0.7934782608695652,
+      "podium_precision": 0.572463768115942,
+      "podium_recall": 0.572463768115942,
+      "position_mae": 3.8909610983981695,
+      "spearman": 0.5771684646398605,
+      "brier_score": 0.034150314262413314,
+      "race_log_loss": 1.63879986748327,
+      "binary_log_loss": 0.12278168086044175,
+      "calibration_ece": 0.028006310190085273,
+      "races": 92
+    },
+    "hist_gradient_boosting": {
+      "top1_accuracy": 0.5217391304347826,
+      "top3_coverage": 0.717391304347826,
+      "podium_precision": 0.532608695652174,
+      "podium_recall": 0.532608695652174,
+      "position_mae": 4.062299771167049,
+      "spearman": 0.5486161054810941,
+      "brier_score": 0.03672537904791744,
+      "race_log_loss": 1.9064893538755805,
+      "binary_log_loss": 0.13967504229337474,
+      "calibration_ece": 0.031040165032561993,
+      "races": 92
+    }
+  },
+  "market_evaluation": null,
+  "market_note": "No archived pre-race market dataset; ML+market metrics unavailable, never fabricated",
+  "probability_unit": "fraction",
+  "limitations": [
+    "Rosters reconstructed from historical entries; future field projected",
+    "Final corrected historical results, not an as-published archive",
+    "No measured practice/weather/tyre features",
+    "Podium/points classifiers are monotonic marginals; sums need not equal 3/10",
+    "Ranking uses win probability, which may be less accurate in the midfield"
+  ]
+}

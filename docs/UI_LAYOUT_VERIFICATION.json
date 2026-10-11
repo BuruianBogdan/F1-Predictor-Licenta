@@ -1,0 +1,185 @@
+{
+  "checks": 30,
+  "results": [
+    {
+      "width": 320,
+      "path": "/",
+      "passed": true,
+      "news_card_count": 3
+    },
+    {
+      "width": 320,
+      "path": "/races",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 320,
+      "path": "/news",
+      "passed": true,
+      "news_card_count": 12
+    },
+    {
+      "width": 320,
+      "path": "/drivers",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 320,
+      "path": "/predictions",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 320,
+      "path": "/championship",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 390,
+      "path": "/",
+      "passed": true,
+      "news_card_count": 3
+    },
+    {
+      "width": 390,
+      "path": "/races",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 390,
+      "path": "/news",
+      "passed": true,
+      "news_card_count": 12
+    },
+    {
+      "width": 390,
+      "path": "/drivers",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 390,
+      "path": "/predictions",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 390,
+      "path": "/championship",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 768,
+      "path": "/",
+      "passed": true,
+      "news_card_count": 3
+    },
+    {
+      "width": 768,
+      "path": "/races",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 768,
+      "path": "/news",
+      "passed": true,
+      "news_card_count": 12
+    },
+    {
+      "width": 768,
+      "path": "/drivers",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 768,
+      "path": "/predictions",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 768,
+      "path": "/championship",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 1440,
+      "path": "/",
+      "passed": true,
+      "news_card_count": 3
+    },
+    {
+      "width": 1440,
+      "path": "/races",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 1440,
+      "path": "/news",
+      "passed": true,
+      "news_card_count": 12
+    },
+    {
+      "width": 1440,
+      "path": "/drivers",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 1440,
+      "path": "/predictions",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 1440,
+      "path": "/championship",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 1920,
+      "path": "/",
+      "passed": true,
+      "news_card_count": 3
+    },
+    {
+      "width": 1920,
+      "path": "/races",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 1920,
+      "path": "/news",
+      "passed": true,
+      "news_card_count": 12
+    },
+    {
+      "width": 1920,
+      "path": "/drivers",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 1920,
+      "path": "/predictions",
+      "passed": true,
+      "news_card_count": 0
+    },
+    {
+      "width": 1920,
+      "path": "/championship",
+      "passed": true,
+      "news_card_count": 0
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Prediction History</title><link rel="stylesheet" th:href="@{/css/style.css}"/></head>
+<body>
+<div th:replace="~{fragments/layout :: track-bg}"></div>
+<div th:replace="~{fragments/layout :: navbar}"></div>
+<div class="container">
+  <h1>Prediction History & Accuracy</h1>
+  <p class="small-text">Saved runs retain the model version and cutoff. Replays are separate from predictions recorded before a race.</p>
+
+  <form method="post" th:action="@{/history/evaluate}" data-spinner>
+    <button type="submit">Evaluate accuracy</button>
+  </form>
+
+  <div th:if="${evaluation != null}" class="section">
+    <p th:text="${evaluation['message']}"></p>
+  </div>
+
+  <div class="section">
+    <table>
+      <thead><tr><th>When</th><th>Kind</th><th>Replay?</th><th>Race</th><th>Top1 Hit</th><th>Top3 Hit</th><th>Avg Pos Err</th></tr></thead>
+      <tbody>
+        <tr th:each="h : ${history}">
+          <td th:text="${h['created_at']}"></td>
+          <td th:text="${h['kind']}"></td><td th:text="${h['historical_replay']}"></td>
+          <td th:text="${h['race_id']}"></td>
+          <td>
+            <span th:if="${h['accuracy'] != null and h['accuracy']['top1_hit']}" class="badge badge-success">YES</span>
+            <span th:if="${h['accuracy'] == null}" class="badge badge-warn">—</span>
+            <span th:if="${h['accuracy'] != null and !h['accuracy']['top1_hit']}" class="badge badge-red">NO</span>
+          </td>
+          <td th:text="${h['accuracy'] != null ? h['accuracy']['top3_hit'] : '—'}"></td>
+          <td th:text="${h['accuracy'] != null ? h['accuracy']['average_position_error'] : '—'}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script th:src="@{/js/app.js}"></script>
+</body></html>

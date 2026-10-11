@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Export</title><link rel="stylesheet" th:href="@{/css/style.css}"/></head>
+<body>
+<div th:replace="~{fragments/layout :: track-bg}"></div>
+<div th:replace="~{fragments/layout :: navbar}"></div>
+<div class="container">
+  <h1>Export Reports</h1><div class="actions"><a class="btn btn-secondary" th:href="${flaskBaseUrl + '/export/history.csv'}">Prediction history CSV</a><a class="btn btn-secondary" th:href="${flaskBaseUrl + '/export/metrics.csv'}">Model metrics CSV</a></div>
+  <p class="small-text">CU-15 — download CSV reports and a plain-text summary.</p>
+
+  <div class="section">
+    <h2>Champion CSV</h2>
+    <a class="btn" th:href="${flaskBaseUrl + '/export/champion.csv'}">Download champion.csv</a>
+  </div>
+
+  <div class="section" th:attr="data-base=${flaskBaseUrl}">
+    <h2>Race CSV</h2>
+    <form method="get" id="race-export-form" class="form-card"
+          onsubmit="event.preventDefault(); var base=this.closest('.section').getAttribute('data-base'); var id=document.getElementById('rid').value; if(id) window.location=base + '/export/race/' + id + '.csv'">
+      <div><label>Race ID</label><input id="rid" type="number" min="1" value="1"/></div>
+      <button type="submit">Download race CSV</button>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2>Full Report (text)</h2>
+    <a class="btn" th:href="${flaskBaseUrl + '/export/report.txt'}">Download report.txt</a>
+  </div>
+</div>
+<script th:src="@{/js/app.js}"></script>
+</body></html>

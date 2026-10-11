@@ -1,0 +1,58 @@
+{
+  "verified_at": "2026-10-09T20:50:06.044493+00:00",
+  "source": "Actual cached Singapore FP1/SQ and Malaysian GP position data",
+  "checks": [
+    {
+      "check": "measured_start_finish_and_distinct_entry_exit_pit_path",
+      "session_key": 11378,
+      "passed": true
+    },
+    {
+      "check": "measured_start_finish_and_distinct_entry_exit_pit_path",
+      "session_key": 11379,
+      "passed": true
+    },
+    {
+      "check": "measured_start_finish_and_distinct_entry_exit_pit_path",
+      "session_key": 11731,
+      "passed": true
+    },
+    {
+      "check": "readable_clickable_labels_stay_close_to_their_own_moving_dot",
+      "moving_updates": 103,
+      "maximum_anchor_distance_svg_px": 34.94,
+      "passed": true
+    },
+    {
+      "check": "circuit_landmarks_and_labels_fit_viewport",
+      "width": 320,
+      "passed": true
+    },
+    {
+      "check": "circuit_landmarks_and_labels_fit_viewport",
+      "width": 390,
+      "passed": true
+    },
+    {
+      "check": "circuit_landmarks_and_labels_fit_viewport",
+      "width": 768,
+      "passed": true
+    },
+    {
+      "check": "circuit_landmarks_and_labels_fit_viewport",
+      "width": 1440,
+      "passed": true
+    },
+    {
+      "check": "circuit_landmarks_and_labels_fit_viewport",
+      "width": 1920,
+      "passed": true
+    }
+  ],
+  "browser_errors": [],
+  "limitations": [
+    "Landmarks follow approximate measured trajectories and flying-lap timing boundaries, not a surveyed FIA map.",
+    "A pit path is unavailable when the source has no complete, distinguishable pit-lane trajectory.",
+    "Overlapping labels are intentionally accepted; no neighbour-based repositioning."
+  ]
+}

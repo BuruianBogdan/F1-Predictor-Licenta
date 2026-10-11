@@ -1,0 +1,56 @@
+{
+  "verified_at": "2026-10-09T20:51:52.699029+00:00",
+  "source": "actual archived Singapore SQ and delayed Malaysian GP sessions",
+  "checks": [
+    {
+      "check": "SQ1_intermission_does_not_stop_or_reveal_final_winner",
+      "elapsed_seconds": 12,
+      "passed": true
+    },
+    {
+      "check": "30x_replay_clock_and_position_buffer_remain_continuous",
+      "moving_updates": 400,
+      "passed": true
+    },
+    {
+      "check": "actual_incident_wear_and_running_race_forecast_at_requested_time",
+      "passed": true
+    },
+    {
+      "check": "strategy_layout_no_page_overflow",
+      "width": 320,
+      "passed": true
+    },
+    {
+      "check": "strategy_layout_no_page_overflow",
+      "width": 390,
+      "passed": true
+    },
+    {
+      "check": "strategy_layout_no_page_overflow",
+      "width": 768,
+      "passed": true
+    },
+    {
+      "check": "strategy_layout_no_page_overflow",
+      "width": 1440,
+      "passed": true
+    },
+    {
+      "check": "strategy_layout_no_page_overflow",
+      "width": 1920,
+      "passed": true
+    },
+    {
+      "check": "estimates_and_unknown_component_states_are_explicit",
+      "passed": true
+    }
+  ],
+  "browser_errors": [],
+  "limitations": [
+    "Tyre wear is a model index for the set; individual wheel wear is unavailable.",
+    "Collision reports are not per-component damage measurements.",
+    "On-track forecasts are experimental and have not been calibrated or backtested.",
+    "Free live source availability and missing position channels are unchanged."
+  ]
+}

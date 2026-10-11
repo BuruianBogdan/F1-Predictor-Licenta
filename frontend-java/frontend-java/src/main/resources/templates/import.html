@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head><meta charset="UTF-8"/><title>Import Data</title><link rel="stylesheet" th:href="@{/css/style.css}"/></head>
+<body>
+<div th:replace="~{fragments/layout :: track-bg}"></div>
+<div th:replace="~{fragments/layout :: navbar}"></div>
+<div class="container">
+  <h1>Data Import</h1>
+  <p class="small-text">CU-08 historical + CU-09 live refresh (2025).</p>
+
+  <div class="section">
+    <h2>Historical Import 2020 → 2024</h2>
+    <form method="post" th:action="@{/import}" class="form-card" data-spinner>
+      <div><label>Start Year</label><input type="number" name="startYear" value="2020" required/></div>
+      <div><label>End Year</label><input type="number" name="endYear" value="2024" required/></div>
+      <button type="submit">Import Historical</button>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2>Refresh Live 2025</h2>
+    <form method="post" th:action="@{/import/refresh-live}" data-spinner>
+      <button type="submit">Refresh Live 2025</button>
+    </form>
+  </div>
+
+  <div class="section" th:if="${importResponse != null}">
+    <h2 th:text="${importResponse['message']}">Done</h2>
+    <pre th:text="${importResponse['summary']}" style="white-space:pre-wrap"></pre>
+  </div>
+</div>
+<script th:src="@{/js/app.js}"></script>
+</body></html>

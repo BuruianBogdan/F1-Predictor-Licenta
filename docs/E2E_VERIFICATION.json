@@ -1,0 +1,146 @@
+{
+  "verified_at": "2026-10-09T07:34:31.169538+00:00",
+  "context": {
+    "active_season": 2026,
+    "as_of": "2026-10-09T07:34:31.169538+00:00",
+    "awaiting_results": [],
+    "last_sync_at": "2026-10-08T17:37:45.890030+00:00",
+    "latest_completed_race": {
+      "circuit_id": 31,
+      "date": "2026-10-04",
+      "is_completed": 1,
+      "qualifying_at": "2026-10-03T08:00:00+00:00",
+      "race_id": 209,
+      "race_name": "Bahrain Grand Prix in Malaysia",
+      "race_status": "COMPLETED",
+      "results_verified": 1,
+      "round": 16,
+      "season_year": 2026,
+      "source": "jolpica",
+      "sprint_at": null,
+      "start_at": "2026-10-04T07:00:00+00:00",
+      "weekend_at": "2026-10-02T04:30:00+00:00"
+    },
+    "next_race": {
+      "circuit_id": 25,
+      "date": "2026-10-11",
+      "is_completed": 0,
+      "qualifying_at": "2026-10-10T13:00:00+00:00",
+      "race_id": 210,
+      "race_name": "Singapore Grand Prix",
+      "race_status": "SCHEDULED",
+      "results_verified": 0,
+      "round": 17,
+      "season_year": 2026,
+      "source": "jolpica",
+      "sprint_at": "2026-10-10T09:00:00+00:00",
+      "start_at": "2026-10-11T12:00:00+00:00",
+      "weekend_at": "2026-10-09T08:30:00+00:00"
+    },
+    "seasons": [
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "stale": false
+  },
+  "outcomes": [
+    {
+      "check": "health",
+      "result": {
+        "database": "ok",
+        "last_data_sync": "2026-10-08T17:37:45.890030+00:00",
+        "llm": "disabled",
+        "model": "loaded",
+        "odds": "disabled",
+        "season": 2026,
+        "status": "ok"
+      }
+    },
+    {
+      "check": "data_quality",
+      "passed": true
+    },
+    {
+      "check": "news_and_circuit_calendar",
+      "articles": 12,
+      "llm": {
+        "available": true,
+        "model": "qwen3:4b-instruct",
+        "provider": "ollama-local"
+      },
+      "next_race": 210
+    },
+    {
+      "check": "frontend_GET_pages",
+      "passed": 19
+    },
+    {
+      "check": "unavailable_qualifying_keeps_form",
+      "passed": true
+    },
+    {
+      "check": "news_adjusts_race_and_championship",
+      "signal_ids": [
+        1
+      ],
+      "passed": true
+    },
+    {
+      "check": "llm",
+      "source": "template"
+    },
+    {
+      "check": "frontend_POST",
+      "path": "/predictions",
+      "passed": true
+    },
+    {
+      "check": "frontend_POST",
+      "path": "/predictions",
+      "passed": true
+    },
+    {
+      "check": "frontend_POST",
+      "path": "/championship",
+      "passed": true
+    },
+    {
+      "check": "frontend_POST",
+      "path": "/races/209/story",
+      "passed": true
+    },
+    {
+      "check": "frontend_POST",
+      "path": "/history/evaluate",
+      "passed": true
+    },
+    {
+      "check": "frontend_POST",
+      "path": "/data/action",
+      "passed": true
+    },
+    {
+      "check": "selenium_UI",
+      "passed": true,
+      "screenshots": "docs/screenshots"
+    },
+    {
+      "check": "forecast_probabilities",
+      "passed": true,
+      "drivers": 22,
+      "model": "logistic-sigmoid-v2-pre_weekend-through-2025",
+      "championship_simulations": 500
+    }
+  ]
+}

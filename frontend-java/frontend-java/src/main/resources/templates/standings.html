@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Standings</title><link rel="stylesheet" th:href="@{/css/style.css}"/></head>
+<body>
+<div th:replace="~{fragments/layout :: track-bg}"></div>
+<div th:replace="~{fragments/layout :: navbar}"></div>
+<div class="container">
+  <h1>Championship Standings</h1><form method="get" class="season-filter"><label for="season">Season</label><select name="season" id="season" onchange="this.form.submit()"><option th:each="s:${context['seasons']}" th:value="${s}" th:text="${s}" th:selected="${s==selectedSeason}"></option></select></form>
+
+  <div class="section">
+    <h2>Driver Standings</h2>
+    <table>
+      <thead><tr><th>#</th><th>Driver</th><th>Code</th><th>Points</th></tr></thead>
+      <tbody>
+        <tr th:each="d, it : ${driverStandings}" th:classappend="${it.index == 0} ? 'top-1' : (${it.index == 1} ? 'top-2' : (${it.index == 2} ? 'top-3' : ''))">
+          <td th:text="${d['position']}"></td>
+          <td th:text="${d['driver_name']}"></td>
+          <td th:text="${d['code']}"></td>
+          <td th:text="${d['points']}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Constructor Standings</h2>
+    <table>
+      <thead><tr><th>#</th><th>Constructor</th><th>Points</th></tr></thead>
+      <tbody>
+        <tr th:each="c, it : ${constructorStandings}" th:classappend="${it.index == 0} ? 'top-1' : (${it.index == 1} ? 'top-2' : (${it.index == 2} ? 'top-3' : ''))">
+          <td th:text="${c['position']}"></td>
+          <td th:text="${c['constructor_name']}"></td>
+          <td th:text="${c['points']}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script th:src="@{/js/app.js}"></script>
+</body></html>

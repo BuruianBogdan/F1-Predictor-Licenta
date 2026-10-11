@@ -1,0 +1,72 @@
+{
+  "verified_at": "2026-10-09T20:19:34.754299+00:00",
+  "replay_source": "OpenF1 Singapore FP1 2026 session 11378",
+  "checks": [
+    {
+      "check": "real_sector_yellow_flag",
+      "passed": true
+    },
+    {
+      "check": "sector_clear_removes_yellow",
+      "passed": true
+    },
+    {
+      "check": "real_measured_car_motion",
+      "passed": true
+    },
+    {
+      "check": "favorite_driver_laps_and_real_telemetry",
+      "passed": true
+    },
+    {
+      "check": "standalone_autoload_continues_after_main_window_closes",
+      "passed": true
+    },
+    {
+      "check": "future_session_countdown_and_start_gate",
+      "passed": true
+    },
+    {
+      "check": "responsive_no_page_overflow",
+      "width": 320,
+      "passed": true
+    },
+    {
+      "check": "responsive_no_page_overflow",
+      "width": 390,
+      "passed": true
+    },
+    {
+      "check": "responsive_no_page_overflow",
+      "width": 768,
+      "passed": true
+    },
+    {
+      "check": "responsive_no_page_overflow",
+      "width": 1440,
+      "passed": true
+    },
+    {
+      "check": "responsive_no_page_overflow",
+      "width": 1920,
+      "passed": true
+    },
+    {
+      "check": "practice_end_uses_confirmed_session_leader",
+      "passed": true
+    },
+    {
+      "check": "delayed_gp_actual_start_finish_and_winner_with_hd_photo",
+      "passed": true
+    }
+  ],
+  "browser_errors": [],
+  "public_live_probe": {
+    "authentication": false,
+    "snapshot_received": true,
+    "timing_drivers": 22,
+    "position_channel_present": false,
+    "car_channel_present": false,
+    "note": "Probe made after Sprint Qualifying; an active session has not yet occurred during this verification. Availability can vary; a later probe returned an unavailable response."
+  }
+}

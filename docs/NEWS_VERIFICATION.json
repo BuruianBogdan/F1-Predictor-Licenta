@@ -1,0 +1,30 @@
+{
+  "verified_at": "2026-10-09T07:37:38.604870+00:00",
+  "automation_enabled": true,
+  "interval_minutes": 30,
+  "llm": {
+    "available": true,
+    "model": "qwen3:4b-instruct",
+    "provider": "ollama-local"
+  },
+  "latest_run": {
+    "completed_at": "2026-10-09T07:37:38.604870+00:00",
+    "data": {
+      "added": 0,
+      "discovered": 0,
+      "errors": [],
+      "rewritten": 3,
+      "signals": 0
+    },
+    "id": 19,
+    "started_at": "2026-10-09T07:37:23.321616+00:00",
+    "status": "SUCCESS"
+  },
+  "articles": 12,
+  "rewritten": 12,
+  "pending": 0,
+  "language": "en",
+  "signal_articles": [
+    6
+  ]
+}

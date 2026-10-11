@@ -1,0 +1,39 @@
+{
+  "before": {
+    "races": 275,
+    "race_results": 5457,
+    "race_entries": 5458
+  },
+  "after": {
+    "races": 275,
+    "race_results": 5457,
+    "race_entries": 5458
+  },
+  "summary": {
+    "season": 2026,
+    "started_at": "2026-10-08T12:04:53.196721+00:00",
+    "errors": [],
+    "drivers_inserted": 0,
+    "drivers_updated": 0,
+    "constructors_inserted": 0,
+    "constructors_updated": 0,
+    "circuits_inserted": 0,
+    "circuits_updated": 0,
+    "races_inserted": 0,
+    "races_updated": 0,
+    "results_inserted": 0,
+    "results_updated": 0,
+    "entries_inserted": 0,
+    "entries_updated": 0,
+    "qualifying_inserted": 0,
+    "qualifying_updated": 0,
+    "sprints_inserted": 0,
+    "sprints_updated": 0,
+    "standings_inserted": 0,
+    "standings_updated": 2,
+    "completed_at": "2026-10-08T12:04:53.530738+00:00",
+    "status": "SUCCESS"
+  },
+  "idempotent_facts": true,
+  "note": "Standing snapshots refresh their timestamp; two snapshot updates are expected."
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Results</title><link rel="stylesheet" th:href="@{/css/style.css}"/></head>
+<body>
+<div th:replace="~{fragments/layout :: track-bg}"></div>
+<div th:replace="~{fragments/layout :: navbar}"></div>
+<div class="container">
+  <h1>Race Results</h1>
+  <div class="section">
+    <table>
+      <thead><tr><th>ID</th><th>Race</th><th>Driver</th><th>Constructor</th><th>Grid</th><th>Pos</th><th>Points</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr th:each="r : ${results}">
+          <td th:text="${r['result_id']}"></td>
+          <td th:text="${r['race_id']}"></td>
+          <td th:text="${r['driver_id']}"></td>
+          <td th:text="${r['constructor_id']}"></td>
+          <td th:text="${r['grid']}"></td>
+          <td th:text="${r['position']}"></td>
+          <td th:text="${r['points']}"></td>
+          <td th:text="${r['status']}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script th:src="@{/js/app.js}"></script>
+</body></html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html><html xmlns:th="http://www.thymeleaf.org"><body>
+<figure th:fragment="layout(c)" class="circuit-map">
+<th:block th:if="${c != null and c['layout_available'] == true}">
+<svg viewBox="0 0 500 300" role="img" th:attr="aria-label=${c['name']}+' circuit layout'" xmlns="http://www.w3.org/2000/svg">
+<path class="circuit-shadow" th:attr="d=${c['path']}"/><path class="circuit-line" th:attr="d=${c['path']}"/>
+<circle class="circuit-start" r="5" th:attr="cx=${c['start_x']},cy=${c['start_y']}"/>
+</svg>
+<figcaption><span th:text="${c['name']}"></span><span class="circuit-distance" th:text="${c['length_km']}+' KM'"></span></figcaption>
+</th:block>
+<span class="muted" th:unless="${c != null and c['layout_available'] == true}" data-i18n="circuit.unavailable">Circuit layout unavailable</span>
+</figure>
+</body></html>

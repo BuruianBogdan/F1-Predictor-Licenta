@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>F1 Predictor System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>F1 Predictor</h2>
+        <ul>
+            <li onclick="showPage('dashboard')">Dashboard</li>
+            <li onclick="showPage('drivers')">Drivers</li>
+            <li onclick="showPage('races')">Races</li>
+            <li onclick="showPage('predictions')">Predictions</li>
+            <li onclick="showPage('scenario')">Scenario</li>
+            <li onclick="showPage('login')">Logout</li>
+        </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+
+        <!-- LOGIN -->
+        <div id="login" class="page active">
+            <h1>Login</h1>
+            <input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <button onclick="showPage('dashboard')">Login</button>
+            <button>Register</button>
+        </div>
+
+        <!-- DASHBOARD -->
+        <div id="dashboard" class="page">
+            <h1>Dashboard</h1>
+            <div class="cards">
+                <div class="card">Drivers: 20</div>
+                <div class="card">Constructors: 10</div>
+                <div class="card">Races: 24</div>
+                <div class="card">Circuits: 24</div>
+            </div>
+
+            <h2>Upcoming Races</h2>
+            <table>
+                <tr><th>Race</th><th>Date</th></tr>
+                <tr><td>Monza</td><td>07-09-2025</td></tr>
+                <tr><td>Silverstone</td><td>06-07-2025</td></tr>
+            </table>
+        </div>
+
+        <!-- DRIVERS -->
+        <div id="drivers" class="page">
+            <h1>Drivers</h1>
+            <button>Add Driver</button>
+            <table>
+                <tr>
+                    <th>ID</th><th>Name</th><th>Nationality</th>
+                </tr>
+                <tr>
+                    <td>1</td><td>Verstappen</td><td>NL</td>
+                </tr>
+                <tr>
+                    <td>2</td><td>Leclerc</td><td>MC</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- RACES -->
+        <div id="races" class="page">
+            <h1>Races</h1>
+            <button>Add Race</button>
+            <table>
+                <tr>
+                    <th>ID</th><th>Name</th><th>Date</th>
+                </tr>
+                <tr>
+                    <td>1</td><td>Monza</td><td>07-09-2025</td>
+                </tr>
+                <tr>
+                    <td>2</td><td>Silverstone</td><td>06-07-2025</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- PREDICTIONS -->
+        <div id="predictions" class="page">
+            <h1>Predictions</h1>
+
+            <button>Predict Championship</button>
+            <button>Predict Race</button>
+
+            <h2>Championship</h2>
+            <table>
+                <tr><th>Driver</th><th>Probability</th></tr>
+                <tr><td>Verstappen</td><td>70%</td></tr>
+                <tr><td>Leclerc</td><td>20%</td></tr>
+            </table>
+        </div>
+
+        <!-- SCENARIO -->
+        <div id="scenario" class="page">
+            <h1>Scenario Simulator</h1>
+
+            <input type="text" placeholder="Scenario Name">
+            <input type="text" placeholder="Parameter">
+            <input type="text" placeholder="New Value">
+
+            <button>Add Change</button>
+            <button>Recalculate</button>
+
+            <h2>Results</h2>
+            <p>Champion changes from Verstappen to Leclerc</p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+    }
+</script>
+
+</body>
+</html>

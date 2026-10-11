@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Drivers</title><link rel="stylesheet" th:href="@{/css/style.css}"/></head>
+<body>
+<div th:replace="~{fragments/layout :: track-bg}"></div>
+<div th:replace="~{fragments/layout :: navbar}"></div>
+<div class="container">
+  <header class="page-header"><p class="eyebrow" th:text="${grid['season']}+' / THE GRID'"></p><h1>The drivers.<br/>The title contenders.</h1><p class="muted">Meet the drivers shaping the season.</p></header>
+  <div class="driver-grid"><a th:each="d:${grid['drivers']}" class="driver-card" th:href="@{'/drivers/'+${d['driver_id']}}" th:style="'--team-color:'+${d['team_color']}"><div class="driver-card-image"><span th:text="${d['number']}"></span><img th:src="${d['driver_image']}" th:alt="${d['driver_name']}" loading="lazy" data-driver-image/></div><div class="driver-card-copy"><span class="mini-label" th:text="${d['constructor_name']}"></span><h2 th:text="${d['driver_name']}"></h2><div class="points"><span th:text="'P'+${d['position']}"></span> · <span th:text="${d['points']}+' PTS'"></span><span style="float:right">↗</span></div></div></a></div>
+  <details class="section"><summary>Historical driver directory</summary>
+    <table>
+      <thead><tr><th>ID</th><th>Code</th><th>Name</th><th>Number</th><th>Nationality</th><th>DOB</th></tr></thead>
+      <tbody>
+        <tr th:each="d : ${drivers}">
+          <td th:text="${d['driver_id']}"></td>
+          <td th:text="${d['code']}"></td>
+          <td><a th:href="@{'/drivers/'+${d['driver_id']}}" th:text="${d['fullName']}"></a></td>
+          <td th:text="${d['number']}"></td>
+          <td th:text="${d['nationality']}"></td>
+          <td th:text="${d['dob']}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+</div>
+<script th:src="@{/js/app.js}"></script>
+</body></html>

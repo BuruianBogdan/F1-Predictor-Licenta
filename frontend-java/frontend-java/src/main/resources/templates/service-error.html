@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Data service unavailable — F1 Predictor</title><link rel="stylesheet" th:href="@{/css/style.css}"/></head><body>
+<div th:replace="~{fragments/layout :: navbar}"></div><main class="container"><section class="empty-state"><p class="eyebrow">SERVICE STATUS</p><h1>We couldn’t load the data.</h1><p class="muted" th:text="${friendlyError}"></p><div class="actions"><a class="btn" href="/">Try race center again ↗</a><a class="btn btn-secondary" href="/data">Data operations</a></div></section></main>
+<footer class="site-footer"><span>F1 PREDICTOR / RESEARCH PROJECT</span><span data-i18n="footer">Independent analysis. Prediction ≠ certainty.</span></footer>
+<script th:src="@{/js/app.js}"></script></body></html>

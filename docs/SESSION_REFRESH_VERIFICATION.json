@@ -1,0 +1,18 @@
+{
+  "verified_at": "2026-10-11T09:27:35.808828+00:00",
+  "checks": [
+    "Tools keeps Update all sessions and the original Race Control; removed menu entries are absent",
+    "The real Tools button reaches the independent backend service; duplicate clicks reuse the same job",
+    "Update dialog fits four viewport widths without overflow",
+    "Original Race Control page retains its playback controls and driver selector"
+  ],
+  "job_id": "77d5fb8e8abc4c6fb632a61dc9e4faed",
+  "job_status_at_check": "RUNNING",
+  "endpoint": "http://127.0.0.1:8090/race-control/api/sessions/refresh",
+  "job_status": "SUCCESS",
+  "source_result": "PARTIAL",
+  "sessions_checked": 5,
+  "warnings": [
+    "Some classifications are not published yet; earlier results have been preserved"
+  ]
+}

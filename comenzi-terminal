@@ -1,0 +1,13 @@
+# F1 Predictor — din rădăcina proiectului; vezi docs/RUNBOOK.md
+# Terminal 1:
+backend-python/.venv/bin/python backend-python/app.py
+# Terminal 2:
+mvn -f frontend-java/frontend-java/pom.xml spring-boot:run
+# Sincronizare / verificare:
+backend-python/.venv/bin/python scripts/sync_f1_data.py --current
+backend-python/.venv/bin/python scripts/data_quality_report.py
+# Antrenare până la ultimul an încheiat:
+backend-python/.venv/bin/python scripts/train_models.py --mode PRE_WEEKEND
+# Teste:
+backend-python/.venv/bin/python -m pytest backend-python/tests -q
+mvn -f frontend-java/frontend-java/pom.xml test package

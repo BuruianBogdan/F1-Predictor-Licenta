@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Regulations</title><link rel="stylesheet" th:href="@{/css/style.css}"/></head>
+<body>
+<div th:replace="~{fragments/layout :: track-bg}"></div>
+<div th:replace="~{fragments/layout :: navbar}"></div>
+<div class="container">
+  <h1>Regulation Impact Module</h1>
+  <p class="small-text">Scenario assumptions, from 0 to 1. These settings affect the What-If layer, never official results or the production model.</p>
+  <div th:if="${savedMessage}" class="badge badge-success" th:text="${savedMessage}"></div>
+
+  <form method="post" th:action="@{/regulations}" class="section" data-spinner>
+    <div th:each="key : ${ {'sprint_impact_weight','wet_race_uncertainty','reliability_weight','budget_cap_upgrade_weight','aero_rule_change_weight','safety_car_randomness'} }"
+         class="range-row">
+      <label th:text="${key}"></label>
+      <input type="range" min="0" max="1" step="0.05"
+             th:name="${key}"
+             th:value="${regulations[key] != null ? regulations[key] : 0}"
+             oninput="this.nextElementSibling.textContent = this.value"/>
+      <span th:text="${regulations[key] != null ? regulations[key] : 0}"></span>
+    </div>
+    <div style="display:flex; gap:8px; margin-top:14px;">
+      <button type="submit">Save</button>
+      <a class="btn btn-secondary" th:href="@{/simulator}">Open simulator →</a>
+    </div>
+  </form>
+
+  <form method="post" th:action="@{/regulations/reset}">
+    <button type="submit" class="btn-secondary">Reset to defaults</button>
+  </form>
+</div>
+<script th:src="@{/js/app.js}"></script>
+</body></html>

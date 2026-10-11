@@ -1,0 +1,80 @@
+# ===== JAVA =====
+*.class
+*.log
+*.ctxt
+.mtj.tmp/
+*.jar
+*.war
+*.ear
+target/
+build/
+
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# ===== PYTHON =====
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+env/
+venv/
+.env
+*.sqlite3
+
+# Local data, backups, provider caches and generated model artifacts
+.DS_Store
+.env.*
+!.env.example
+database/*.db*
+database/backups/
+backend-python/data/cache/
+backend-python/data/models/
+backend-python/data/datasets/
+backend-python/data/*history*.json
+backend-python/data/scenarios.json
+.pytest_cache/
+*.db-wal
+*.db-shm
+backend-python/data/runtime/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Java
+target/
+*.class
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+
+# Local databases and caches
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+data/cache/
+data/raw/
+logs/
+*.log
+
+# Other generated files
+node_modules/
+dist/
+build/

@@ -1,0 +1,8 @@
+{
+  "sprint_impact_weight": 0.45,
+  "wet_race_uncertainty": 0.25,
+  "reliability_weight": 0.45,
+  "budget_cap_upgrade_weight": 0.15,
+  "aero_rule_change_weight": 0.1,
+  "safety_car_randomness": 0.1
+}
