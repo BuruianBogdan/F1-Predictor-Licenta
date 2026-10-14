@@ -1,0 +1,75 @@
+{
+  "verified_at": "2026-10-11T20:51:21.343667+00:00",
+  "branch": "codex/live-feed-integration",
+  "tests": {
+    "backend_passed": 159,
+    "backend_optional_skipped": 1,
+    "java_passed": 32,
+    "animation_passed": 9
+  },
+  "page_checks": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/races",
+      "status": 200
+    },
+    {
+      "path": "/predictions",
+      "status": 200
+    },
+    {
+      "path": "/championship",
+      "status": 200
+    },
+    {
+      "path": "/race-control/209",
+      "status": 200
+    },
+    {
+      "path": "/race-control/api/providers",
+      "status": 200
+    },
+    {
+      "path": "/race-control/api/health",
+      "status": 200
+    },
+    {
+      "path": "/race-control/api/sessions/refresh",
+      "status": 200
+    },
+    {
+      "path": "/live-timing",
+      "status": 404
+    },
+    {
+      "path": "/screen-timing",
+      "status": 404
+    }
+  ],
+  "cross_origin_stop_rejected": true,
+  "database_tables_unchanged": true,
+  "official_results_counts_unchanged": true,
+  "background_news_scheduler_changes": {
+    "news_articles": [
+      47,
+      57
+    ],
+    "news_crawl_runs": [
+      77,
+      78
+    ]
+  },
+  "live_gps_verified": false,
+  "live_car_data_verified": false,
+  "real_live_session_pending": true,
+  "final_reports": {
+    "source": "LIVE_SOURCE_VERIFICATION.json",
+    "browser": "LIVE_BROWSER_VERIFICATION.json",
+    "backtest": "LIVE_BACKTEST_RESULTS.json",
+    "buffers": "LIVE_BUFFER_VERIFICATION.json",
+    "fastf1": "FASTF1_ARCHIVE_VERIFICATION.json"
+  }
+}

@@ -97,7 +97,7 @@ def main():
         checks.append({'check':'delayed_gp_actual_start_finish_and_winner_with_hd_photo','passed':True})
         errors=[e for e in d.get_log('browser') if e['level']=='SEVERE' and 'favicon' not in e['message']]
         assert not errors,errors
-        report={'verified_at':datetime.now(timezone.utc).isoformat(),'replay_source':'OpenF1 Singapore FP1 2026 session 11378','checks':checks,'browser_errors':errors,'public_live_probe':{'authentication':False,'snapshot_received':True,'timing_drivers':22,'position_channel_present':False,'car_channel_present':False,'note':'Probe made after Sprint Qualifying; an active session has not yet occurred during this verification. Availability can vary; a later probe returned an unavailable response.'}}
+        report={'verified_at':datetime.now(timezone.utc).isoformat(),'replay_source':'OpenF1 Singapore FP1 2026 session 11378','checks':checks,'browser_errors':errors,'public_live_probe':{'status':'NOT_TESTED','reason':'This browser regression verifies historical replay only; run verify_live_sources.py separately.'}}
         (ROOT/'docs/RACE_CONTROL_VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
     finally:d.quit()
 if __name__=='__main__':main()

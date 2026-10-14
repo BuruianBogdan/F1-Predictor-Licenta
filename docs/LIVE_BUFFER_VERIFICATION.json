@@ -1,0 +1,15 @@
+{
+  "status": "TESTED_FIXTURE",
+  "virtual_seconds": 4500,
+  "drivers": 22,
+  "events_injected": 202500,
+  "elapsed_seconds": 2.553938625002047,
+  "cpu_seconds": 2.493835,
+  "python_allocated_bytes": 7414921,
+  "python_peak_allocated_bytes": 7479002,
+  "position_samples": 39600,
+  "telemetry_samples": 11000,
+  "weather_events": 4000,
+  "bound_check": true,
+  "live_evidence": false
+}

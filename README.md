@@ -163,3 +163,38 @@ Race Control now includes continuous replay through qualifying intermissions, sm
 ## Manual session update
 
 Tools → **Update all sessions** checks the current weekend's schedule and published results, recalculates the existing forecasts and downloads every available public replay. Progress and source warnings appear in a dialog; replays open the original Race Control viewer. The action is independent of the removed data-platform and OCR extensions. See [docs/SESSION_REFRESH.md](docs/SESSION_REFRESH.md).
+
+## Race Control feed integration
+
+The same viewer now has **Feed diagnostics**, strict session identity/source freshness, bounded reconnect/decoding/state recovery, a measured FastF1 historical fallback, RPM where actually available, observed pit/stint details and read-only provisional driver/constructor championship projections. A connected socket or undated snapshot is not labelled LIVE. Removed OCR/data-platform pages remain absent. Current verification received post-session public timing snapshots but no Position.z/CarData.z; active live GPS/telemetry is still pending a genuine running-session test.
+
+[Full integration report, including the 30 requested answers](docs/LIVE_INTEGRATION_REPORT.md) · [source comparison](docs/LIVE_PROVIDER_COMPARISON.md) · [architecture](docs/LIVE_DATA_ARCHITECTURE.md) · [diagnostics / next-session validation](docs/LIVE_DIAGNOSTICS.md) · [limits](docs/LIVE_LIMITATIONS.md) · [historical strategy benchmark](docs/LIVE_BACKTESTING.md).
+
+```sh
+backend-python/.venv/bin/python scripts/verify_timing_integration.py
+backend-python/.venv/bin/python scripts/verify_timing_buffers.py
+backend-python/.venv/bin/python scripts/backtest_race_strategy.py --download
+# Substitute the actual next race ID and session code; stop the app's live feed first.
+backend-python/.venv/bin/python scripts/verify_live_sources.py --race-id 210 --session R --public-probe --seconds 20 --compare-public-hosts
+```
+
+The existing experimental strategy formula remains unchanged. Its small four-session benchmark underperformed a current-leader baseline; these metrics are reported separately and do not imply a calibrated live model.
+
+## Live Data v2 completion
+Live Data v2 extends the existing Race Control diagnostics/projection. The completion evidence is in [docs/LIVE_COMPLETION_REPORT.md](docs/LIVE_COMPLETION_REPORT.md). Active-session Position.z/CarData.z access remains PENDING_LIVE_SESSION; replay and protocol fixtures are reported separately. Tools Update all sessions is retained.
+
+With Flask/Spring Boot running:
+
+```sh
+backend-python/.venv/bin/python -m pytest backend-python/tests -q
+mvn -f frontend-java/frontend-java/pom.xml test package
+node --test scripts/tests/race-control-engine.test.js
+backend-python/.venv/bin/python scripts/verify_race_control.py
+backend-python/.venv/bin/python scripts/verify_timing_integration.py
+backend-python/.venv/bin/python scripts/verify_live_completion_browser.py
+backend-python/.venv/bin/python scripts/verify_fastf1_archive.py --browser
+backend-python/.venv/bin/python scripts/backtest_race_strategy.py
+backend-python/.venv/bin/python scripts/verify_live_performance.py
+```
+
+An actual future session requires selecting its catalog race/session code and running `scripts/verify_live_sources.py --race-id <id> --session <code> --public-probe --seconds 30` while it is running, with other app live connections stopped. This is an explicit probe, not an authenticated or protected-content workaround.

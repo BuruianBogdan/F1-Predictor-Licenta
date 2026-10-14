@@ -1,0 +1,409 @@
+{
+  "verified_at": "2026-10-14T16:48:57.390129+00:00",
+  "selected_session": {
+    "session_key": 11388,
+    "session_type": "Race",
+    "session_name": "Race",
+    "date_start": "2026-10-11T12:00:00+00:00",
+    "date_end": "2026-10-11T14:00:00+00:00",
+    "meeting_key": 1296,
+    "circuit_key": 61,
+    "circuit_short_name": "Singapore",
+    "country_key": 157,
+    "country_code": "SGP",
+    "country_name": "Singapore",
+    "location": "Marina Bay",
+    "gmt_offset": "08:00:00",
+    "year": 2026,
+    "is_cancelled": false,
+    "circuit_length_km": 4.928,
+    "code": "R",
+    "state": "REPLAY",
+    "live_allowed": false,
+    "replay_allowed": true,
+    "archive_at": "2026-10-11T14:30:00+00:00",
+    "prepared": true
+  },
+  "providers": [
+    {
+      "id": "existing_public_timing",
+      "role": "primary_live",
+      "transport": "SignalR Core",
+      "enabled": true,
+      "capabilities": [
+        "timing",
+        "sectors",
+        "tyres",
+        "weather",
+        "race_control",
+        "lap_count",
+        "track_status"
+      ],
+      "conditional_capabilities": [
+        "positions",
+        "telemetry"
+      ],
+      "availability": "UNKNOWN_UNTIL_OBSERVED",
+      "documentation": "https://github.com/theOehrly/Fast-F1"
+    },
+    {
+      "id": "openf1_historical",
+      "role": "primary_historical",
+      "transport": "rate-limited REST",
+      "enabled": true,
+      "capabilities": [
+        "timing",
+        "positions",
+        "telemetry",
+        "tyres",
+        "weather",
+        "race_control"
+      ],
+      "availability": "PER_SESSION",
+      "documentation": "https://openf1.org/docs/"
+    },
+    {
+      "id": "fastf1_historical",
+      "role": "historical_fallback",
+      "transport": "cached historical session files",
+      "enabled": true,
+      "capabilities": [
+        "timing",
+        "positions",
+        "telemetry",
+        "tyres",
+        "weather",
+        "race_control"
+      ],
+      "availability": "PER_SESSION",
+      "documentation": "https://docs.fastf1.dev/"
+    },
+    {
+      "id": "jolpica_official",
+      "role": "published_classification_and_standings",
+      "transport": "existing REST sync",
+      "enabled": true,
+      "capabilities": [
+        "published_results",
+        "championship_baseline"
+      ],
+      "documentation": "https://github.com/jolpica/jolpica-f1"
+    },
+    {
+      "id": "external_live_adapter",
+      "role": "optional_live",
+      "enabled": false,
+      "availability": "NOT_TESTED",
+      "reason": "No tested independent public live advantage. Referenced clients share the same upstream."
+    }
+  ],
+  "historical_checks": [
+    {
+      "session_key": 11378,
+      "status": "VERIFIED_HISTORICAL",
+      "session_name": "Practice 1",
+      "drivers": 22,
+      "position_samples": 136655,
+      "car_samples_loaded": 0,
+      "source": "openf1_historical"
+    },
+    {
+      "session_key": 11379,
+      "status": "VERIFIED_HISTORICAL",
+      "session_name": "Sprint Qualifying",
+      "drivers": 22,
+      "position_samples": 152638,
+      "car_samples_loaded": 0,
+      "source": "openf1_historical"
+    },
+    {
+      "session_key": 11383,
+      "status": "VERIFIED_HISTORICAL",
+      "session_name": "Sprint",
+      "drivers": 22,
+      "position_samples": 95096,
+      "car_samples_loaded": 0,
+      "source": "openf1_historical"
+    },
+    {
+      "session_key": 11384,
+      "status": "VERIFIED_HISTORICAL",
+      "session_name": "Qualifying",
+      "drivers": 22,
+      "position_samples": 139537,
+      "car_samples_loaded": 0,
+      "source": "openf1_historical"
+    },
+    {
+      "session_key": 11388,
+      "status": "VERIFIED_HISTORICAL",
+      "session_name": "Race",
+      "drivers": 22,
+      "position_samples": 321868,
+      "car_samples_loaded": 345444,
+      "source": "fastf1_historical"
+    }
+  ],
+  "public_probe": {
+    "status": "NOT_TESTED",
+    "reason": "No running, matching session with fresh dated timing was observed",
+    "session_key": 11388,
+    "phase": "Ends",
+    "diagnostics": {
+      "schema_version": 1,
+      "provider_id": "existing_public_timing",
+      "session_key": 11388,
+      "state": "SESSION_ENDED",
+      "transport_state": "SESSION_ENDED",
+      "identity": "VERIFIED",
+      "error": "The selected session has finalised; use the historical replay",
+      "attempts": 1,
+      "last_transport_utc": "2026-10-14T16:48:47.165336+00:00",
+      "recovered": false,
+      "channels": {
+        "SessionInfo": {
+          "requested": true,
+          "packets": 1,
+          "valid_events": 1,
+          "rejected": 0,
+          "duplicates": 0,
+          "last_source_utc": null,
+          "last_received_utc": "2026-10-14T16:48:47.162321+00:00",
+          "age_seconds": null,
+          "state": "PARTIAL",
+          "latency_seconds": null,
+          "explanation": "Snapshot has no verified source timestamp"
+        },
+        "SessionStatus": {
+          "requested": true,
+          "packets": 1,
+          "valid_events": 1,
+          "rejected": 0,
+          "duplicates": 0,
+          "last_source_utc": null,
+          "last_received_utc": "2026-10-14T16:48:47.165355+00:00",
+          "age_seconds": null,
+          "state": "PARTIAL",
+          "latency_seconds": null,
+          "explanation": "Snapshot has no verified source timestamp"
+        },
+        "DriverList": {
+          "requested": true,
+          "packets": 1,
+          "valid_events": 1,
+          "rejected": 0,
+          "duplicates": 0,
+          "last_source_utc": null,
+          "last_received_utc": "2026-10-14T16:48:47.165478+00:00",
+          "age_seconds": null,
+          "state": "PARTIAL",
+          "latency_seconds": null,
+          "explanation": "Snapshot has no verified source timestamp"
+        },
+        "Position.z": {
+          "requested": true,
+          "packets": 0,
+          "valid_events": 0,
+          "rejected": 0,
+          "duplicates": 0,
+          "last_source_utc": null,
+          "last_received_utc": null,
+          "age_seconds": null,
+          "state": "MISSING",
+          "latency_seconds": null,
+          "explanation": "Subscribed, but no observations received"
+        },
+        "CarData.z": {
+          "requested": true,
+          "packets": 0,
+          "valid_events": 0,
+          "rejected": 0,
+          "duplicates": 0,
+          "last_source_utc": null,
+          "last_received_utc": null,
+          "age_seconds": null,
+          "state": "MISSING",
+          "latency_seconds": null,
+          "explanation": "Subscribed, but no observations received"
+        },
+        "TimingData": {
+          "requested": true,
+          "packets": 1,
+          "valid_events": 1,
+          "rejected": 0,
+          "duplicates": 0,
+          "last_source_utc": null,
+          "last_received_utc": "2026-10-14T16:48:47.173384+00:00",
+          "age_seconds": null,
+          "state": "PARTIAL",
+          "latency_seconds": null,
+          "explanation": "Snapshot has no verified source timestamp"
+        },
+        "TimingAppData": {
+          "requested": true,
+          "packets": 1,
+          "valid_events": 1,
+          "rejected": 0,
+          "duplicates": 0,
+          "last_source_utc": null,
+          "last_received_utc": "2026-10-14T16:48:47.181224+00:00",
+          "age_seconds": null,
+          "state": "PARTIAL",
+          "latency_seconds": null,
+          "explanation": "Snapshot has no verified source timestamp"
+        },
+        "TimingStats": {
+          "requested": true,
+          "packets": 1,
+          "valid_events": 1,
+          "rejected": 0,
+          "duplicates": 0,
+          "last_source_utc": null,
+          "last_received_utc": "2026-10-14T16:48:47.182483+00:00",
+          "age_seconds": null,
+          "state": "PARTIAL",
+          "latency_seconds": null,
+          "explanation": "Snapshot has no verified source timestamp"
+        },
+        "RaceControlMessages": {
+          "requested": true,
+          "packets": 1,
+          "valid_events": 1,
+          "rejected": 0,
+          "duplicates": 0,
+          "last_source_utc": "2026-10-11T13:48:13+00:00",
+          "last_received_utc": "2026-10-14T16:48:47.184525+00:00",
+          "last_source_received_utc": "2026-10-14T16:48:47.184525+00:00",
+          "age_seconds": 270044.363683939,
+          "state": "STALE",
+          "latency_seconds": 270034.18452501297,
+          "explanation": "Source observations stopped advancing"
+        },
+        "WeatherData": {
+          "requested": true,
+          "packets": 1,
+          "valid_events": 1,
+          "rejected": 0,
+          "duplicates": 0,
+          "last_source_utc": null,
+          "last_received_utc": "2026-10-14T16:48:47.187411+00:00",
+          "age_seconds": null,
+          "state": "PARTIAL",
+          "latency_seconds": null,
+          "explanation": "Snapshot has no verified source timestamp"
+        },
+        "TrackStatus": {
+          "requested": true,
+          "packets": 1,
+          "valid_events": 1,
+          "rejected": 0,
+          "duplicates": 0,
+          "last_source_utc": null,
+          "last_received_utc": "2026-10-14T16:48:47.187502+00:00",
+          "age_seconds": null,
+          "state": "PARTIAL",
+          "latency_seconds": null,
+          "explanation": "Snapshot has no verified source timestamp"
+        },
+        "LapCount": {
+          "requested": true,
+          "packets": 1,
+          "valid_events": 1,
+          "rejected": 0,
+          "duplicates": 0,
+          "last_source_utc": null,
+          "last_received_utc": "2026-10-14T16:48:47.187538+00:00",
+          "age_seconds": null,
+          "state": "PARTIAL",
+          "latency_seconds": null,
+          "explanation": "Snapshot has no verified source timestamp"
+        }
+      },
+      "capabilities": {
+        "timing": "PARTIAL",
+        "driver_list": "PARTIAL",
+        "sectors": "PARTIAL",
+        "tyres": "PARTIAL",
+        "race_control": "STALE",
+        "weather": "PARTIAL",
+        "positions": "MISSING",
+        "telemetry": "MISSING",
+        "lap_count": "PARTIAL",
+        "track_status": "PARTIAL"
+      },
+      "cutoff_utc": "2026-10-14T16:48:57.363684+00:00",
+      "last_valid_observation_utc": "2026-10-11T13:48:13+00:00",
+      "last_received_packet_utc": "2026-10-14T16:48:47.187538+00:00",
+      "data_age_seconds": null,
+      "latency_seconds": null
+    },
+    "live_xy_received": false,
+    "live_car_data_received": false
+  },
+  "fixture_tests": {
+    "status": "NOT_TESTED",
+    "command": "backend-python/.venv/bin/python -m pytest backend-python/tests/test_timing_integration.py -q",
+    "note": "Run protocol fixtures separately; this source probe does not execute pytest or prove upstream live access"
+  },
+  "credentials_used": false,
+  "live_validation_pending": true,
+  "live_validation_status": "PENDING_LIVE_SESSION",
+  "alternative_public_host_checks": [
+    {
+      "provider_id": "harsh_host",
+      "url": "https://f1-live-api.onrender.com/health",
+      "http_status": 503,
+      "status": "UNAVAILABLE",
+      "reason": "Hosted health probe; no active timing verified"
+    },
+    {
+      "provider_id": "f1api_results",
+      "url": "https://f1api.dev/api/2026/16/race",
+      "http_status": 200,
+      "status": "VERIFIED_HISTORICAL",
+      "reason": "Published results, not live coordinates/CarData"
+    },
+    {
+      "provider_id": "f1api_results_site",
+      "url": "https://live.f1api.dev",
+      "http_status": 200,
+      "status": "NOT_TESTED",
+      "reason": "Public results website, not verified streaming transport"
+    }
+  ],
+  "fastf1_historical_check": {
+    "status": "VERIFIED_HISTORICAL",
+    "verified_at": "2026-10-14T16:29:08.855528+00:00",
+    "session_key": 9662,
+    "race_id": 107,
+    "year": 2024,
+    "round": 24,
+    "session_name": "Race",
+    "source": "FastF1 measured historical session files",
+    "fallback_selection_status": "VERIFIED_FIXTURE",
+    "fallback_selection_reason": "Only primary failure injected; fallback loads genuine historical data",
+    "elapsed_seconds": 31.230418500010273,
+    "drivers": 20,
+    "completed_laps": 1035,
+    "weather_records": 148,
+    "race_control_records": 133,
+    "pit_events": 30,
+    "position_samples": 269967,
+    "telemetry_samples": 292240,
+    "driver_identity_scope_checked": true,
+    "timestamps_checked": true,
+    "track_available": true,
+    "comparison": {
+      "openf1_session_key": 9662,
+      "same_winner": true,
+      "winner_driver_number": 4,
+      "same_roster": true,
+      "fastf1_laps": 1035,
+      "openf1_laps": 1037,
+      "note": "Sample rates, lap deletion/correction handling, gaps and pit-duration availability differ; sources are not interchangeable."
+    },
+    "live_tested": false,
+    "replay_rendering": "VERIFIED_HISTORICAL",
+    "render_transport": "VERIFIED_FIXTURE: isolated browser response bridge with genuine FastF1 frame, not live data"
+  }
+}

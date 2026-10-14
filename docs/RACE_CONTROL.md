@@ -67,3 +67,13 @@ A pit path comes from a complete archived pit passage, including the measured br
 Archived PIT status comes from the driver’s latest measured location relative to that route. The archive duration record is a completion record in the verified sessions; treating it as an entry trigger incorrectly kept a car marked PIT after leaving. The entry estimate now scans only past positions, stops at telemetry gaps and never uses a future stop’s duration. Unknown or stale positions leave pit occupancy unavailable. Live continues using the source’s InPit flag.
 
 `verify_track_landmarks.py` checks actual Singapore FP1 / SQ and Malaysian GP start / pit paths, clickable labels following their own moving dots, pit occupancy and five viewport widths. See `TRACK_MAP_VERIFICATION.json` and `screenshots/race-control-attached-labels.png`. Geometry unit tests cover missing measurements, no fabricated lane, past-only pit state, stale samples and a timing line distinct from the arbitrary shape origin.
+# October 11 integration
+
+See [LIVE_DATA_ARCHITECTURE.md](LIVE_DATA_ARCHITECTURE.md), [LIVE_DIAGNOSTICS.md](LIVE_DIAGNOSTICS.md), [LIVE_SOURCE_VERIFICATION.json](LIVE_SOURCE_VERIFICATION.json) and [LIVE_LIMITATIONS.md](LIVE_LIMITATIONS.md) for the current source/connection/identity behaviour. Live observations and replay datasets are now separate. A real public snapshot was observed after Singapore GP, without Position.z or CarData.z; an active live test remains pending. The existing renderer/controls and Tools refresh action remain.
+
+## Live Data v2 completion
+Finalised + P1 is only provisional. Published Formula 1/Jolpica versioned classifications confirm winners. The final replay transition may show the latest verified historical outcome with an explicit historical label; this does not claim that the result was published at the cursor. A later correction can change the winner. No official winner hero is written by timing alone.
+
+The projection remains inside Race Control with driver/constructor switching, current team, official-before-session points, provisional points, total, position and movement. Missing historical publication evidence produces UNVERIFIED_BASELINE; a manual refresh records new observation versions but cannot retroactively create missing history. Tools Update all sessions is preserved. The removed OCR and separate platform pages remain absent.
+
+Reproduce new UI scenarios with `backend-python/.venv/bin/python scripts/verify_live_completion_browser.py`; they are VERIFIED_FIXTURE, not a real live-access claim.

@@ -1,0 +1,32 @@
+# Reviewed sources and reuse
+
+Review refreshed: 14 October 2026. No external repository was installed as a second live service. The implementation is original Python/Java/JavaScript inside the existing Race Control. Protocol and design references were studied; no third-party source files, fonts, recorded fixtures or assets were copied into this repository.
+
+| Project | Reviewed revision | Licence | Effective source / decision |
+|---|---|---|---|
+| [mricero/F1-Telemetry-Dashboard](https://github.com/mricero/F1-Telemetry-Dashboard) | `0feea8c3db7f0d53195b80783f7ee35902b6cf23` | LICENSE: MIT; supplementary NOTICE identifies assets/data outside that licence | SignalR Core client. Studied public negotiation, sparse state, missing-channel handling and connection lifecycle. Its authenticated helpers were not used. |
+| [harsh779/f1-live-api](https://github.com/harsh779/f1-live-api) | `7e2040aa01641f92a6242f9c6e755c3a0142210e` | MIT | Same Formula 1 timing upstream behind REST/SSE. Hosted `/health` returned HTTP 503, “Service Suspended”, during the actual probe. No fallback enabled. |
+| [julesr0y/f1-livetiming-api](https://github.com/julesr0y/f1-livetiming-api) | `76512d8c0124acd21e499ef924363e1dbdd825b4` | Apache-2.0, with NOTICE | Same SignalR Core upstream. Studied subscription/keyframe handling; README latency/capacity claims were not treated as measured evidence. No Node service added. |
+| [FastF1](https://github.com/theOehrly/Fast-F1) | `227cf301fb4bcf1705bcb1866de1fe5dbcef6071` | MIT | Existing library, installed version 3.8.3. New measured historical converter/fallback genuinely tested on Abu Dhabi 2024. Its source files were read for field semantics. |
+| [OpenF1](https://github.com/br-g/openf1) | `87540e3f495bbd9bedb37b10456dd848c8f193d6` | CC BY-NC-SA 4.0 repository licence | Existing public historical REST provider remains primary for replay. No server code copied. [Official access documentation](https://openf1.org/docs/) describes free historical data and subscription access for live data. No paid live endpoint was enabled. |
+| [Jolpica](https://github.com/jolpica/jolpica-f1) | `a1bd8c6c4402691ece4dafa76279615cf0b781f7` | Apache-2.0 | Existing official/published classification and standings sync retained. The user-supplied `jolpica-f1/jolpica-f1` path did not resolve; the verified repository is `jolpica/jolpica-f1`. |
+| [slowlydev/f1-dash](https://github.com/slowlydev/f1-dash) | `d21607afbbab44a97863a605bad174d3c92367f2` | AGPL-3.0 | Architectural/UX reference only. No AGPL code/assets integrated. Same timing upstream; a separate deployment would not create missing upstream channels. |
+| [F1 API](https://github.com/Rafacv23/F1-api) / [f1api.dev](https://f1api.dev) | `5392986c71318a7544cff068abedf3a7803f9f60` | MIT | Published results endpoint `/api/2026/16/race` returned HTTP 200 with 22 classified rows. `live.f1api.dev` is a results website, not verified GPS/CarData transport. No independent live advantage established; original data provenance beyond its database is not asserted. |
+
+The three SignalR client projects, f1-dash and FastF1 timing files substantially depend on Formula 1 timing. OpenF1 is a separate REST/archive service with overlapping upstream observations. Jolpica published results provide a different classification/baseline role. Multiple clients subscribing to one upstream are not independent measurements.
+
+An ordinary public SignalR negotiate connection identifier and server-issued load-balancer affinity cookie are handled locally and never logged/saved. No account token, F1 TV cookie, browser session, identity disguise, subscription workaround or DRM/CAPTCHA automation is used. A code licence does not grant data access. Licence/source URLs must remain in any academic attribution; externally hosted services can change or disappear.
+
+Live alternatives remain disabled because none demonstrated an accessible, independent advantage in the current environment. The primary live transport is improved directly, rather than adding a chain of untested proxies.
+
+The current inspected file hashes/revisions are in LIVE_PROVIDER_AUDIT.json. GitHub NOASSERTION was resolved by reading the actual MIT (mricero) and CC BY-NC-SA-4.0 (OpenF1) licence texts. No external code was copied.
+
+| Provider role | Complementary data? | Access / cost | Rate limits / reliability | Compatibility decision |
+|---|---|---|---|---|
+| mricero / harsh / jules / f1-dash | No verified independent upstream channels | Public upstream session availability is conditional; an open-source client licence is not a data-access guarantee | No published upstream guarantee verified. Current host probes are in source JSON; retry budget is bounded | Same SignalR source already integrated. No second deployment/adapter. F1-dash AGPL code not incorporated. |
+| FastF1 | Yes, a historical fallback when primary archive is unavailable | Existing MIT Python dependency; public historical files, no account used in experiment | Cached explicit loads, measured conversion; 20 drivers / 1,035 lap rows in actual Abu Dhabi test | Existing adapter verified through actual prepare fallback and replay renderer. Missing gap/pit-duration channels remain missing. |
+| OpenF1 | Existing primary historical coordinate/timing archive | Historical public access; live subscription requires authorized access per official docs | Existing serialized REST spacing (2.1 seconds); HTTP errors/rate limits retained | Reused, no server implementation copied. No paid live request enabled. |
+| Jolpica | Published results and corrections differ in role from live timing | Existing public results REST API; no account used | Existing request pacing / explicit atomic season sync; no service-level guarantee assumed | Reused and versions stored in existing weekend table. The supplied GitHub path is incorrect; verified repository is jolpica/jolpica-f1. |
+| F1 API | No verified additional live coordinates or car stream | Public results site/endpoint; no subscription/authentication used in probe | No live service reliability guarantee verified | No adapter added; results overlap existing classification providers. |
+
+No source is enabled to bypass authentication, rate limits or protected data. Terms beyond each published repository/documentation have not been independently certified; access refusal is reported rather than circumvented. Active upstream timing availability remains PENDING_LIVE_SESSION even where a README promises free live service.

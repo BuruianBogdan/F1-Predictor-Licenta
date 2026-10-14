@@ -11,5 +11,6 @@
   "pytest": "9.1.1",
   "selenium": "4.50.0",
   "fastf1": "3.8.3",
-  "openai": "2.54.0"
+  "openai": "2.54.0",
+  "signalrcore": "1.0.2"
 }

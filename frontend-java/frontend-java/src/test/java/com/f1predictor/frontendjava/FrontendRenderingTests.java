@@ -143,6 +143,30 @@ class FrontendRenderingTests {
             .andExpect(content().string(containsString("Timing tower")))
             .andExpect(content().string(containsString("favorite-driver")));
     }
+    @Test void diagnosticsAndProjectionStayInExistingViewer() throws Exception {
+        mvc.perform(get("/race-control/999").param("standalone","true")).andExpect(status().isOk())
+            .andExpect(xpath("//dialog[@id='feed-diagnostics']").exists())
+            .andExpect(xpath("//tbody[@id='projection-rows']").exists())
+            .andExpect(xpath("//b[@id='car-rpm']").exists());
+        mvc.perform(get("/screen-timing")).andExpect(status().isNotFound());
+        mvc.perform(get("/live-timing")).andExpect(status().isNotFound());
+    }
+    @Test void diagnosticsProxyPreservesSessionAndCutoff() throws Exception {
+        when(api.getMap("/race-control/999/700/diagnostics?mode=LIVE&at=100.0")).thenReturn(map("state","STALE","session_key",700));
+        mvc.perform(get("/race-control/api/999/700/diagnostics").param("mode","LIVE").param("at","100"))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.state").value("STALE"));
+        verify(api).getMap("/race-control/999/700/diagnostics?mode=LIVE&at=100.0");
+    }
+    @Test void championshipProxyRestrictsScoringAndKeepsUnknownEligibility() throws Exception {
+        when(api.getMap("/race-control/999/700/championship-projection?mode=REPLAY&scoring=STOPPED_NOW&at=100.0")).thenReturn(map("status","UNVERIFIED_STOPPAGE_RULES"));
+        mvc.perform(get("/race-control/api/999/700/championship-projection").param("at","100").param("scoring","STOPPED_NOW"))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.status").value("UNVERIFIED_STOPPAGE_RULES"));
+    }
+    @Test void crossOriginCannotStopSharedFeed() throws Exception {
+        mvc.perform(post("/race-control/api/999/700/stop").header("Origin","https://unrelated.example"))
+            .andExpect(status().isForbidden());
+        verify(api,never()).postMap(eq("/race-control/999/700/stop"),any());
+    }
     @Test void timingProxyKeepsFailuresAsJson() throws Exception {
         when(api.getMap("/race-control/999/catalog")).thenThrow(new FlaskApiService.ApiException("Timing unavailable",502,"PROVIDER_UNAVAILABLE"));
         mvc.perform(get("/race-control/api/999/catalog")).andExpect(status().isBadGateway())
@@ -162,7 +186,7 @@ class FrontendRenderingTests {
             .andExpect(content().string(containsString("Incident feed")));
     }
     @Test void timingProxyBoundsTheLookaheadWindowForFastReplay() throws Exception {
-        when(api.getMap("/race-control/999/100/frame?mode=REPLAY&at=42.0&driver=63&window=240")).thenReturn(Map.of("phase","BREAK"));
+        when(api.getMap("/race-control/999/100/frame?mode=REPLAY&at=42.0&driver=63&scoring=FULL_DISTANCE&window=240")).thenReturn(Map.of("phase","BREAK"));
         mvc.perform(get("/race-control/api/999/100/frame").param("at","42").param("driver","63").param("window","9999"))
             .andExpect(status().isOk()).andExpect(jsonPath("$.phase").value("BREAK"));
     }

@@ -1,0 +1,335 @@
+{
+  "reviewed_at": "2026-10-14T16:27:02.867538+00:00",
+  "copied_external_code": false,
+  "projects": [
+    {
+      "repo": "slowlydev/f1-dash",
+      "revision": "d21607afbbab44a97863a605bad174d3c92367f2",
+      "license": "AGPL-3.0",
+      "archived": false,
+      "inspected_files": [
+        "LICENSE",
+        "README.md"
+      ],
+      "url": "https://github.com/slowlydev/f1-dash",
+      "verified_files": [
+        {
+          "file": "LICENSE",
+          "sha256": "58d152b6f5e0b16f7a0ea8ac30dce39597207e8c2f33980a3a25ffdbc62c0172",
+          "bytes": 34498
+        },
+        {
+          "file": "README.md",
+          "sha256": "ff4fd88311ed3ed456e1d46b1e79c9343143f9700dfb06a8d1f988807e9ecde4",
+          "bytes": 1127
+        }
+      ],
+      "status": "NOT_TESTED",
+      "reason": "Code/documentation inspection; no real running-session evidence"
+    },
+    {
+      "repo": "jolpica/jolpica-f1",
+      "revision": "a1bd8c6c4402691ece4dafa76279615cf0b781f7",
+      "license": "Apache-2.0",
+      "archived": false,
+      "inspected_files": [
+        "LICENSE",
+        "README.md",
+        "docs/README.md"
+      ],
+      "url": "https://github.com/jolpica/jolpica-f1",
+      "verified_files": [
+        {
+          "file": "LICENSE",
+          "sha256": "4e31c4d064ef244940d588e0e83ee93cd4a32ddb780efc8fa8fc89dc4297f736",
+          "bytes": 11337
+        },
+        {
+          "file": "README.md",
+          "sha256": "201aed086e98b39e8031de30706b974cbc002f99b15ee8bf7aeec8d8ebedb91d",
+          "bytes": 5292
+        },
+        {
+          "file": "docs/README.md",
+          "sha256": "268c3b1994deed2575742adc99d4cdc1c7f729c80ff154fb75dceeb0e21afaad",
+          "bytes": 3790
+        }
+      ],
+      "status": "VERIFIED_HISTORICAL",
+      "reason": "Code/documentation inspection; no real running-session evidence"
+    },
+    {
+      "repo": "julesr0y/f1-livetiming-api",
+      "revision": "76512d8c0124acd21e499ef924363e1dbdd825b4",
+      "license": "Apache-2.0",
+      "archived": false,
+      "inspected_files": [
+        "LICENSE",
+        "NOTICE",
+        "README.md",
+        "src/f1-client.js"
+      ],
+      "url": "https://github.com/julesr0y/f1-livetiming-api",
+      "verified_files": [
+        {
+          "file": "LICENSE",
+          "sha256": "fee87cc352ff14941dfc883f780a7b9849f578d8de8ab2c2f0f4a39395ca6c7f",
+          "bytes": 11337
+        },
+        {
+          "file": "NOTICE",
+          "sha256": "a06abd7d389f039ac5819ba14288f0b4abaffac43f34db3896946d525989edba",
+          "bytes": 286
+        },
+        {
+          "file": "README.md",
+          "sha256": "601ff4582716d7aed0e49ed4b155f56987842467e2f1a34044455126e4d8d461",
+          "bytes": 13242
+        },
+        {
+          "file": "src/f1-client.js",
+          "sha256": "2f569d651f43599ef9da1c99b41d56d2b97d509963b31876ec5f8a549a3e9e5b",
+          "bytes": 12553
+        }
+      ],
+      "status": "NOT_TESTED",
+      "reason": "Code/documentation inspection; no real running-session evidence"
+    },
+    {
+      "repo": "theOehrly/Fast-F1",
+      "revision": "227cf301fb4bcf1705bcb1866de1fe5dbcef6071",
+      "license": "MIT",
+      "archived": false,
+      "inspected_files": [
+        "LICENSE",
+        "README.md",
+        "fastf1/_api.py",
+        "fastf1/livetiming/client.py",
+        "fastf1/tests/test_api.py"
+      ],
+      "url": "https://github.com/theOehrly/Fast-F1",
+      "verified_files": [
+        {
+          "file": "LICENSE",
+          "sha256": "a7f66fb0d00563e964ac231872101cd8ca740476753929111b9eba4555d231c6",
+          "bytes": 1073
+        },
+        {
+          "file": "README.md",
+          "sha256": "a32fecc4445f4b72b5c9dc0b71f219851ce131464a957c225b835e0e943d5f81",
+          "bytes": 2566
+        },
+        {
+          "file": "fastf1/_api.py",
+          "sha256": "4185dff5716f413d5193b7e8c7ec10cca94383f54ab5c67741a407b966d41782",
+          "bytes": 77994
+        },
+        {
+          "file": "fastf1/livetiming/client.py",
+          "sha256": "f6f8f3bac8c4d34516a188b990c3ba873d7b46350fb3d50128e399f22053ccf7",
+          "bytes": 7956
+        },
+        {
+          "file": "fastf1/tests/test_api.py",
+          "sha256": "5855b1773da4c3b17031db08af7626f18aa17752e8293a10b08ac79ccbca8fb7",
+          "bytes": 9837
+        }
+      ],
+      "status": "VERIFIED_HISTORICAL",
+      "reason": "Code/documentation inspection; no real running-session evidence"
+    },
+    {
+      "repo": "br-g/openf1",
+      "revision": "87540e3f495bbd9bedb37b10456dd848c8f193d6",
+      "license": "NOASSERTION",
+      "archived": false,
+      "inspected_files": [
+        "LICENSE",
+        "README.md",
+        "src/openf1/services/f1_scraping/session_result.py",
+        "src/openf1/services/ingestor_livetiming/core/processing/collections/car_data.py",
+        "src/openf1/services/ingestor_livetiming/core/processing/collections/championship_drivers.py",
+        "src/openf1/services/ingestor_livetiming/core/processing/collections/championship_teams.py",
+        "src/openf1/services/ingestor_livetiming/core/processing/collections/position.py"
+      ],
+      "url": "https://github.com/br-g/openf1",
+      "verified_files": [
+        {
+          "file": "LICENSE",
+          "sha256": "15e0485b6b8034dff9206b5ed9c4781c12034802b8f68c93bd396e3be83c94c5",
+          "bytes": 20268
+        },
+        {
+          "file": "README.md",
+          "sha256": "bd8b98da043a7b32452b4aea23fdb633f01df99c899ede198f45fcb1a04d0bb4",
+          "bytes": 2855
+        },
+        {
+          "file": "src/openf1/services/f1_scraping/session_result.py",
+          "sha256": "469c6658c2bcd0c4c54a5bd5320aec1ca894ec956d82088b8c9237ee6ffd3bbb",
+          "bytes": 9072
+        },
+        {
+          "file": "src/openf1/services/ingestor_livetiming/core/processing/collections/car_data.py",
+          "sha256": "63d86bd33020bed5d53357939e022f64048b72ecd1616a91e5f7133046b413c7",
+          "bytes": 2047
+        },
+        {
+          "file": "src/openf1/services/ingestor_livetiming/core/processing/collections/championship_drivers.py",
+          "sha256": "c6d89f01fc2d53b257b19b81f22b226c795c2f2ae9e4af5abac81d7296607f9e",
+          "bytes": 2075
+        },
+        {
+          "file": "src/openf1/services/ingestor_livetiming/core/processing/collections/championship_teams.py",
+          "sha256": "22819586053f88b815b79c08678a6d8126974a56a7aa1e0930d696970966df84",
+          "bytes": 2095
+        },
+        {
+          "file": "src/openf1/services/ingestor_livetiming/core/processing/collections/position.py",
+          "sha256": "346d800db68c32109c75e7424741da63597e89d31331e9a7f1c20e92b2ab81f2",
+          "bytes": 1120
+        }
+      ],
+      "status": "NOT_TESTED",
+      "reason": "Code/documentation inspection; no real running-session evidence",
+      "verified_license": "CC BY-NC-SA-4.0"
+    },
+    {
+      "repo": "mricero/F1-Telemetry-Dashboard",
+      "revision": "0feea8c3db7f0d53195b80783f7ee35902b6cf23",
+      "license": "NOASSERTION",
+      "archived": false,
+      "inspected_files": [
+        "LICENSE",
+        "NOTICE",
+        "readme.md",
+        "src/f1dash/data/signalr_core.py",
+        "src/f1dash/data/live_adapter.py",
+        "src/f1dash/data/live_state.py",
+        "src/f1dash/data/live_service.py"
+      ],
+      "api_license_detection": "NOASSERTION",
+      "url": "https://github.com/mricero/F1-Telemetry-Dashboard",
+      "verified_files": [
+        {
+          "file": "LICENSE",
+          "sha256": "38b1d85a579dc378a93a4af57e17b10740905d4974a695e0763a931b3e9c2d7d",
+          "bytes": 1320
+        },
+        {
+          "file": "NOTICE",
+          "sha256": "1947444dfb2a74a254360ee453bb695a221e3fa9f9d8515f86ff8d6fa6ee79f0",
+          "bytes": 1619
+        },
+        {
+          "file": "readme.md",
+          "sha256": "85dc4dbf13930e4783152798587e1edd1fcef090af6f3ed8c600d2cdc038ece5",
+          "bytes": 21518
+        },
+        {
+          "file": "src/f1dash/data/signalr_core.py",
+          "sha256": "d1ad4c6e9fe52cb911b508b8b30f0b2d62e0bf1b3c219ce0dd38a61aac15b34c",
+          "bytes": 26760
+        },
+        {
+          "file": "src/f1dash/data/live_adapter.py",
+          "sha256": "d4da54e7bfd0fcfa5c01201970b90b3af8dfff4aac803d97df5ca71404f55950",
+          "bytes": 58864
+        },
+        {
+          "file": "src/f1dash/data/live_state.py",
+          "sha256": "7e27431a7be0515e19e2cd4bc2cb0783697f20fa051054f99282ff8ed1c2e148",
+          "bytes": 5662
+        },
+        {
+          "file": "src/f1dash/data/live_service.py",
+          "sha256": "45fd030824b00e5d561a4c474fe103f16cb94d1750ffcb9a067d74c21a2eee6a",
+          "bytes": 1618
+        }
+      ],
+      "status": "NOT_TESTED",
+      "reason": "Code/documentation inspection; no real running-session evidence",
+      "verified_license": "MIT"
+    },
+    {
+      "repo": "Rafacv23/F1-api",
+      "revision": "5392986c71318a7544cff068abedf3a7803f9f60",
+      "license": "MIT",
+      "inspected_files": [
+        "LICENSE",
+        "README.md"
+      ],
+      "url": "https://github.com/Rafacv23/F1-api",
+      "archived": false,
+      "verified_files": [
+        {
+          "file": "LICENSE",
+          "sha256": "bd70ae06a2bdd788d4c3b88a39031d3a4b02821c8cc858c760243a6591ba660e",
+          "bytes": 1077
+        },
+        {
+          "file": "README.md",
+          "sha256": "35bf96d0c19b3e2b911526b06601cb2a01af894470c996326d0c25f557ed2975",
+          "bytes": 4833
+        }
+      ],
+      "status": "NOT_TESTED",
+      "reason": "Code/documentation inspection; no real running-session evidence"
+    },
+    {
+      "repo": "harsh779/f1-live-api",
+      "revision": "7e2040aa01641f92a6242f9c6e755c3a0142210e",
+      "license": "MIT",
+      "archived": false,
+      "inspected_files": [
+        "LICENSE",
+        "README.md",
+        "src/f1timing/state.js",
+        "src/f1timing/client.js",
+        "src/f1timing/merge.js",
+        "src/f1timing/persistence.js",
+        "src/middleware/rateLimiter.js"
+      ],
+      "url": "https://github.com/harsh779/f1-live-api",
+      "verified_files": [
+        {
+          "file": "LICENSE",
+          "sha256": "8b1bed9a996d2abe089c244742223ae53bd262ce2dc0e410e674f9fbbec4de91",
+          "bytes": 1073
+        },
+        {
+          "file": "README.md",
+          "sha256": "9501bb252289001b0ef4e110a1f68511ad0972c7959b932730ec0c500940aa74",
+          "bytes": 18883
+        },
+        {
+          "file": "src/f1timing/state.js",
+          "sha256": "665941d110ba043f1776ee3de26576f14020a778c95574007d152e1ce2d34ab7",
+          "bytes": 10340
+        },
+        {
+          "file": "src/f1timing/client.js",
+          "sha256": "9bc1ff45954b689eec4c7487b7635a5466b09d2c94838f217c6fd92b8fb32e74",
+          "bytes": 10878
+        },
+        {
+          "file": "src/f1timing/merge.js",
+          "sha256": "25df1d2eb890fa38dd6927805bd86be8e0dca352e9eb06d51b02b859b758f72f",
+          "bytes": 1662
+        },
+        {
+          "file": "src/f1timing/persistence.js",
+          "sha256": "516a4f0c2487ab7e57919dba97c15042471e20b685a70c73d04ef018dd5936c4",
+          "bytes": 11398
+        },
+        {
+          "file": "src/middleware/rateLimiter.js",
+          "sha256": "50d38474a5d0b8712fe736ec1f2c5a4ca305b6616ea8b750e7435fef91dd7daf",
+          "bytes": 681
+        }
+      ],
+      "status": "NOT_TESTED",
+      "reason": "Code/documentation inspection; no real running-session evidence"
+    }
+  ]
+}

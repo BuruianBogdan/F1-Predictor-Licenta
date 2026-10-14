@@ -43,3 +43,6 @@ Scenariile actuale sunt analize de sensibilitate, nu estimări cauzale. Simulare
 ## Explicație scurtă pentru coordonator
 
 „Dezvolt o platformă de analiză și predicție Formula 1 care separă achiziția datelor, calculul probabilităților și explicarea rezultatelor. Am corectat utilizarea informațiilor viitoare, am construit un set de caracteristici cu prag temporal și am comparat algoritmii pe patru sezoane de test. Modelul logistic identifică pre-weekend câștigătorul în 50% dintre cele 92 de curse evaluate, față de 45,7% pentru baseline. Lucrarea urmărește reproductibilitatea și evaluarea onestă, inclusiv situațiile în care modelul nu îmbunătățește rezultatul.”
+# Integrarea verificabilă a datelor Race Control
+
+Contribuția incrementală separă identitatea sesiunii, timestamp-ul observației și recepția, gestionează actualizări sparse și canale lipsă, limitează memoria/reîncercările și recuperează checkpoint-uri numai ca STALE. Nu confundați un snapshot recepționat după sesiune cu acces live GPS validat. Arhivele pot include corecții retrospective. Modelul experimental păstrat are acum un benchmark mic la cinci cutoff-uri, care nu arată superioritate față de lider. [Raportul complet](LIVE_INTEGRATION_REPORT.md) răspunde celor 30 de întrebări și leagă dovezile/sursele/licențele.

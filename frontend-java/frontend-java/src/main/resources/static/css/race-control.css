@@ -18,3 +18,16 @@
 
 /* Labels stay attached to their own dot; overlap is intentional. */
 .rc-label-stem{fill:none;stroke:#72849a;stroke-width:.7;stroke-opacity:.65;pointer-events:none}.rc-driver-label:focus-visible rect:first-child{stroke:#fff;stroke-width:1.4}.rc-driver-label:hover rect:first-child{fill:#29374b;stroke:#d6e2f1}.rc-pit-road{fill:none;stroke:#132b36;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.rc-pit-path{fill:none;stroke:#6ad9e4;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.rc-pit-marker circle{fill:#6ad9e4;stroke:#17212b;stroke-width:1.5}.rc-pit-marker text,.rc-start-line text{font:bold 8px ui-monospace,monospace;fill:#93dce5;paint-order:stroke;stroke:#121a25;stroke-width:3;stroke-linejoin:round}.rc-start-line text{fill:#d9e3f0;font-size:8px}.rc-start-line rect{stroke:#17212b;stroke-width:.8}.rc-pit-key{display:inline-block;width:16px;height:2px;background:#6ad9e4;vertical-align:middle;margin-right:6px}.rc-start-key{color:#becbdc}#track-landmarks,#track-sectors,#car-label-stems{pointer-events:none}.rc-landmarks-note{margin:0;padding:0 24px 14px;font-size:10px;color:#8493a6}
+/* In-place diagnostics and provisional standings preserve the timing-room layout. */
+.rc-diagnostics-dialog{color:var(--text,#edf1f7);background:#111923;border:1px solid #344253;border-radius:12px;padding:28px;width:min(1000px,calc(100vw - 32px));max-height:85vh;overflow:auto}
+.rc-diagnostics-dialog::backdrop{background:#05080dcc;backdrop-filter:blur(5px)}
+.rc-diagnostics-dialog .rc-panel-heading{gap:20px}.rc-diagnostics-dialog h2{font-size:28px;margin:8px 0}
+.rc-capability-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:18px 0}
+.rc-capability{border:1px solid #2e3846;border-radius:6px;padding:10px;display:flex;flex-direction:column;gap:6px;font-size:12px}
+.rc-capability strong{font:11px ui-monospace,monospace;color:#a7b3c5}.rc-capability[data-state=AVAILABLE] strong{color:#62dca1}.rc-capability[data-state=STALE] strong{color:#ead35b}.rc-capability[data-state=UNAUTHORIZED] strong{color:#ef5b58}
+.rc-projection-controls{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:0 24px}.rc-projection-controls label{font-size:12px;color:#a7b3c5}.rc-projection-controls select{max-width:100%;width:auto;min-width:140px}
+.rc-championship .rc-table{min-width:490px}.rc-diagnostics-dialog .rc-table{min-width:690px}.rc-championship h2{font-size:clamp(21px,2vw,29px)}
+.rc-telemetry-values{flex-wrap:wrap}.rc-tower{min-width:700px}
+@media(max-width:600px){.rc-diagnostics-dialog{padding:18px}.rc-header-actions{flex-wrap:wrap}.rc-projection-controls select{flex:1}}
+
+.rc-diagnostics-summary{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:8px 16px;padding:0 24px;font-size:.8rem}.rc-diagnostics-summary dd{margin:0;overflow-wrap:anywhere}.rc-diagnostics-summary dt{color:var(--muted,#a3adbc)}.rc-table tr[tabindex]:focus-visible{outline:2px solid #adc1e7;outline-offset:-2px}.rc-diagnostics-dialog .rc-table{min-width:880px} @media(prefers-reduced-motion:reduce){#race-control *, .rc-diagnostics-dialog *{animation:none!important;transition:none!important}}

@@ -116,3 +116,6 @@ Race Control now includes continuous replay through qualifying intermissions, sm
 ## Manual session update
 
 Use Tools → **Update all sessions**. Its independent service checks the current weekend and downloads public archives through the original Race Control code. GET/POST `/race-control/api/sessions/refresh` reports the shared job. See SESSION_REFRESH.md for source availability, progress and deduplication. The OCR and separate data-platform pages have been removed.
+# Race Control feed verification
+
+Use the unchanged startup commands and Tools → Update all sessions. Feed diagnostics is inside the existing viewer. During the next running session, verify matching identity and dated fresh TimingData, then separately actual Position.z/CarData.z receipt. To run a command-line source probe, stop the app's shared live connection first. See [LIVE_DIAGNOSTICS.md](LIVE_DIAGNOSTICS.md) for commands and [LIVE_INTEGRATION_REPORT.md](LIVE_INTEGRATION_REPORT.md) for status/evidence. Recovery is STALE; config flags do not grant protected-source access. No OCR or separate data-platform page is present.

@@ -1,0 +1,15 @@
+{
+  "verified_at": "2026-10-14T16:58:08.198836+00:00",
+  "checks": [
+    {
+      "url": "http://127.0.0.1:5000/race-control/health",
+      "http_status": 200,
+      "status": "OK"
+    },
+    {
+      "url": "http://127.0.0.1:8090/race-control/api/209/11731/frame?mode=REPLAY&at=1791105280&driver=16&scoring=STOPPED_NOW",
+      "http_status": 200,
+      "status": "UNVERIFIED_STOPPAGE_RULES"
+    }
+  ]
+}

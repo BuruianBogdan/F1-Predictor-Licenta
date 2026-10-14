@@ -64,7 +64,7 @@ def main():
         checks.append({'check':'estimates_and_unknown_component_states_are_explicit','passed':True})
         errors=[e for e in d.get_log('browser') if e['level']=='SEVERE' and 'favicon' not in e['message']]
         assert not errors,errors
-        report={'verified_at':datetime.now(timezone.utc).isoformat(),'source':'actual archived Singapore SQ and delayed Malaysian GP sessions','checks':checks,'browser_errors':errors,'limitations':['Tyre wear is a model index for the set; individual wheel wear is unavailable.','Collision reports are not per-component damage measurements.','On-track forecasts are experimental and have not been calibrated or backtested.','Free live source availability and missing position channels are unchanged.']}
+        report={'verified_at':datetime.now(timezone.utc).isoformat(),'source':'actual archived Singapore SQ and delayed Malaysian GP sessions','checks':checks,'browser_errors':errors,'limitations':['Tyre wear is a model index for the set; individual wheel wear is unavailable.','Collision reports are not per-component damage measurements.','On-track forecasts are experimental and uncalibrated; the small descriptive benchmark is in LIVE_BACKTEST_RESULTS.json.','Active-session live position/car reception remains unverified; see LIVE_SOURCE_VERIFICATION.json.']}
         (ROOT/'docs/RACE_STRATEGY_VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
     finally:d.quit()
 if __name__=='__main__':main()

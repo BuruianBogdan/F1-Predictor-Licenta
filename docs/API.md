@@ -139,3 +139,6 @@ Live public timing and complete historical replay now have a dedicated viewer at
 
 
 Race Control now includes continuous replay through qualifying intermissions, smooth measured markers / labels, tyre-set and incident panels, and an experimental on-track winner forecast. [Details and verification](RACE_STRATEGY.md). The frame endpoint accepts a bounded `window` in seconds for high-speed replay and includes `race_forecast`, `incidents`, `tyre_estimate` and reported component states.
+# Race Control integration additions
+
+The original catalog/prepare/status/frame API is retained. Source roles, per-channel diagnostics/capabilities, stop and read-only championship projection live under the same namespace; see [LIVE_DIAGNOSTICS.md](LIVE_DIAGNOSTICS.md) for exact routes. Frame additions include `diagnostics`, `championship_projection`, per-field `provenance`, observed stops and an optional seventh compact telemetry column (RPM). Missing values remain null. The removed `/api/live` and OCR services are not restored.

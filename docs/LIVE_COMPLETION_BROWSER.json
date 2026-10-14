@@ -1,0 +1,116 @@
+{
+  "verified_at": "2026-10-14T16:58:49.110733+00:00",
+  "status": "VERIFIED_FIXTURE",
+  "real_live_session_tested": false,
+  "scenarios": [
+    {
+      "scenario": "1_no_selected_session",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "2_upcoming_session_start_gate",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "3_live_transport_without_timing",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "4_live_with_valid_fixture_timing",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "5_delayed_feed",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "6_disconnected_feed",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "7_missing_position_channel",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "8_missing_car_channel",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "diagnostics_all_twelve_requested_topics",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "9_replay_loaded",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "10_driver_switch",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "11_old_frame_discarded_on_session_switch",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "12_multiple_windows",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "13_drivers_projection",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "14_constructors_projection",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "single_frame_request_no_duplicate_diagnostics_or_projection",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "15_mapping_missing",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "16_provisional_finish_without_winner_hero",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "17_verified_historical_result",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "18_backend_interruption_visible",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "19_frontend_recovers_after_backend_returns",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "bounded_request_timeout_without_backend_response",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "20_mobile_no_page_overflow",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "accessible_dialog_escape",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "reduced_motion_preference",
+      "status": "VERIFIED_FIXTURE"
+    },
+    {
+      "scenario": "pagehide_stops_frontend_requests",
+      "status": "VERIFIED_FIXTURE"
+    }
+  ],
+  "browser_errors": [],
+  "limits": [
+    "Backend restart simulated as bounded HTTP failure/return; real checkpoint restart is separately verified by backend tests.",
+    "Live states and scoring fixtures test UI contracts, not upstream availability."
+  ]
+}

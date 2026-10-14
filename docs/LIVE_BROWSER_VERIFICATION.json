@@ -1,0 +1,50 @@
+{
+  "verified_at": "2026-10-14T16:45:11.885005+00:00",
+  "checks": [
+    {
+      "check": "provisional_drivers_constructors_and_unknown_stopped_now_eligibility",
+      "passed": true
+    },
+    {
+      "check": "diagnostics_dialog_observed_archive_channels_and_close",
+      "passed": true
+    },
+    {
+      "check": "new_controls_fit_without_page_overflow",
+      "width": 320,
+      "passed": true
+    },
+    {
+      "check": "new_controls_fit_without_page_overflow",
+      "width": 390,
+      "passed": true
+    },
+    {
+      "check": "new_controls_fit_without_page_overflow",
+      "width": 768,
+      "passed": true
+    },
+    {
+      "check": "new_controls_fit_without_page_overflow",
+      "width": 1440,
+      "passed": true
+    },
+    {
+      "check": "new_controls_fit_without_page_overflow",
+      "width": 1920,
+      "passed": true
+    },
+    {
+      "check": "new_api_and_kept_refresh_action_removed_extensions_remain_absent",
+      "passed": true
+    }
+  ],
+  "browser_errors": [],
+  "performance": {
+    "http_frames": 20,
+    "http_frame_ms_p50": 46.35477099509444,
+    "http_frame_ms_p95": 55.59437500778586,
+    "payload_bytes_p50": 113114.0
+  },
+  "live_session_tested": false
+}

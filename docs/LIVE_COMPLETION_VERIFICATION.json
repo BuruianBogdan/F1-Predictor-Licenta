@@ -1,0 +1,174 @@
+{
+  "verified_at": "2026-10-14T17:00:34.023490+00:00",
+  "initial_head": "710b7e34ed70161f97a1e1adcc37e02d06cbe89e",
+  "branch": "fix/live-feed-completion",
+  "commits_created": false,
+  "pushed": false,
+  "checks": [
+    {
+      "name": "Backend",
+      "command": "RUN_SELENIUM=1 backend-python/.venv/bin/python -m pytest backend-python/tests -q",
+      "status": "PASS",
+      "output": "/tmp/f1-v2-backend.log"
+    },
+    {
+      "name": "Java",
+      "command": "mvn -f frontend-java/frontend-java/pom.xml test package",
+      "status": "PASS",
+      "output": "/tmp/f1-v2-java.log"
+    },
+    {
+      "name": "Renderer",
+      "command": "node --test scripts/tests/race-control-engine.test.js",
+      "status": "PASS",
+      "output": "/tmp/f1-v2-js.log"
+    },
+    {
+      "name": "Real replay",
+      "command": "backend-python/.venv/bin/python scripts/verify_race_control.py",
+      "status": "PASS",
+      "output": "/tmp/f1-v2-browser-original.log"
+    },
+    {
+      "name": "Strategy browser",
+      "command": "backend-python/.venv/bin/python scripts/verify_race_control_strategy.py",
+      "status": "PASS",
+      "output": "/tmp/f1-v2-browser-strategy.log"
+    },
+    {
+      "name": "Responsive/proxy",
+      "command": "backend-python/.venv/bin/python scripts/verify_timing_integration.py",
+      "status": "PASS",
+      "output": "/tmp/f1-v2-browser-integration.log"
+    },
+    {
+      "name": "Completion scenarios",
+      "command": "backend-python/.venv/bin/python scripts/verify_live_completion_browser.py",
+      "status": "PASS",
+      "output": "/tmp/f1-v2-browser-completion.log"
+    },
+    {
+      "name": "FastF1",
+      "command": "backend-python/.venv/bin/python scripts/verify_fastf1_archive.py --browser",
+      "status": "PASS",
+      "output": "/tmp/f1-v2-fastf1.log"
+    },
+    {
+      "name": "Buffers",
+      "command": "backend-python/.venv/bin/python scripts/verify_timing_buffers.py",
+      "status": "PASS",
+      "output": "/tmp/f1-v2-buffers.log"
+    },
+    {
+      "name": "Performance",
+      "command": "backend-python/.venv/bin/python scripts/verify_live_performance.py",
+      "status": "PASS",
+      "output": "/tmp/f1-v2-perf.log"
+    },
+    {
+      "name": "Evaluation",
+      "command": "backend-python/.venv/bin/python scripts/backtest_race_strategy.py",
+      "status": "PASS",
+      "output": "/tmp/f1-v2-backtest.log"
+    },
+    {
+      "name": "Sources",
+      "command": "backend-python/.venv/bin/python scripts/verify_live_sources.py --race-id 210 --session R --public-probe --seconds 10 --compare-public-hosts",
+      "status": "PASS",
+      "output": "/tmp/f1-v2-sources.log"
+    }
+  ],
+  "backend_passed": 185,
+  "backend_skipped": 0,
+  "java_tests": 32,
+  "renderer_tests": 9,
+  "real_live_validation": "PENDING_LIVE_SESSION",
+  "secret_scan": {
+    "status": "PASS",
+    "scope": "Changed and untracked source/documentation text; environment file not read or staged"
+  },
+  "diff_check": {
+    "status": "PASS"
+  },
+  "changed_files": [
+    "README.md",
+    "backend-python/api/race_control_routes.py",
+    "backend-python/data_sources/timing_contract.py",
+    "backend-python/services/data_sync_service.py",
+    "backend-python/services/race_control_checkpoint.py",
+    "backend-python/services/race_control_projection_service.py",
+    "backend-python/services/race_control_service.py",
+    "backend-python/services/race_strategy_service.py",
+    "backend-python/tests/test_race_strategy.py",
+    "backend-python/tests/test_timing_integration.py",
+    "docs/API.md",
+    "docs/ARCHITECTURE.md",
+    "docs/KNOWN_LIMITATIONS.md",
+    "docs/RACE_CONTROL.md",
+    "docs/RACE_CONTROL_VERIFICATION.json",
+    "docs/RACE_STRATEGY.md",
+    "docs/RACE_STRATEGY_VERIFICATION.json",
+    "docs/RUNBOOK.md",
+    "docs/TESTING.md",
+    "docs/THESIS_NOTES.md",
+    "docs/VERIFIED_DEPENDENCIES.json",
+    "docs/screenshots/race-control-desktop.png",
+    "docs/screenshots/race-control-gp-start.png",
+    "docs/screenshots/race-control-gp-winner.png",
+    "docs/screenshots/race-control-mobile.png",
+    "docs/screenshots/race-control-session-leader.png",
+    "docs/screenshots/race-control-smooth-map.png",
+    "docs/screenshots/race-control-standalone.png",
+    "docs/screenshots/race-control-start.png",
+    "docs/screenshots/race-control-strategy-desktop.png",
+    "docs/screenshots/race-control-strategy-mobile.png",
+    "docs/screenshots/race-control-tyres-incident.png",
+    "frontend-java/frontend-java/src/main/java/com/f1predictor/frontendjava/controller/RaceControlController.java",
+    "frontend-java/frontend-java/src/main/resources/static/css/race-control.css",
+    "frontend-java/frontend-java/src/main/resources/static/js/race-control.js",
+    "frontend-java/frontend-java/src/main/resources/templates/race-control.html",
+    "frontend-java/frontend-java/src/test/java/com/f1predictor/frontendjava/FrontendRenderingTests.java",
+    "scripts/verify_race_control.py",
+    "scripts/verify_race_control_strategy.py"
+  ],
+  "untracked_files": [
+    "backend-python/services/race_control_results.py",
+    "backend-python/tests/test_live_completion.py",
+    "docs/FASTF1_ARCHIVE_VERIFICATION.json",
+    "docs/LIVE_BACKTESTING.md",
+    "docs/LIVE_BACKTEST_RESULTS.json",
+    "docs/LIVE_BROWSER_VERIFICATION.json",
+    "docs/LIVE_BUFFER_VERIFICATION.json",
+    "docs/LIVE_COMPLETION_AUDIT.md",
+    "docs/LIVE_COMPLETION_BROWSER.json",
+    "docs/LIVE_COMPLETION_REPORT.md",
+    "docs/LIVE_COMPLETION_VERIFICATION.json",
+    "docs/LIVE_CONNECTION_LIFECYCLE.md",
+    "docs/LIVE_DATA_ARCHITECTURE.md",
+    "docs/LIVE_DATA_SCHEMA.md",
+    "docs/LIVE_DIAGNOSTICS.md",
+    "docs/LIVE_FEED_AUDIT.md",
+    "docs/LIVE_FINAL_SMOKE.json",
+    "docs/LIVE_INTEGRATION_REPORT.md",
+    "docs/LIVE_INTEGRATION_VERIFICATION.json",
+    "docs/LIVE_LIMITATIONS.md",
+    "docs/LIVE_PERFORMANCE.md",
+    "docs/LIVE_PERFORMANCE_VERIFICATION.json",
+    "docs/LIVE_PROVIDER_AUDIT.json",
+    "docs/LIVE_PROVIDER_COMPARISON.md",
+    "docs/LIVE_SOURCE_VERIFICATION.json",
+    "docs/evaluation/LIVE_BACKTEST_RESULTS.json",
+    "docs/screenshots/fastf1-replay-verified.png",
+    "docs/screenshots/timing-diagnostics-desktop.png",
+    "docs/screenshots/timing-diagnostics-mobile.png",
+    "docs/screenshots/timing-projection-desktop.png",
+    "scripts/backtest_race_strategy.py",
+    "scripts/verify_fastf1_archive.py",
+    "scripts/verify_live_completion_browser.py",
+    "scripts/verify_live_performance.py",
+    "scripts/verify_live_sources.py",
+    "scripts/verify_timing_buffers.py",
+    "scripts/verify_timing_integration.py"
+  ],
+  "smoke_evidence": "docs/LIVE_FINAL_SMOKE.json"
+}

@@ -1,5 +1,5 @@
 {
-  "verified_at": "2026-10-09T20:19:34.754299+00:00",
+  "verified_at": "2026-10-14T16:48:09.720087+00:00",
   "replay_source": "OpenF1 Singapore FP1 2026 session 11378",
   "checks": [
     {
@@ -20,10 +20,6 @@
     },
     {
       "check": "standalone_autoload_continues_after_main_window_closes",
-      "passed": true
-    },
-    {
-      "check": "future_session_countdown_and_start_gate",
       "passed": true
     },
     {
@@ -62,11 +58,7 @@
   ],
   "browser_errors": [],
   "public_live_probe": {
-    "authentication": false,
-    "snapshot_received": true,
-    "timing_drivers": 22,
-    "position_channel_present": false,
-    "car_channel_present": false,
-    "note": "Probe made after Sprint Qualifying; an active session has not yet occurred during this verification. Availability can vary; a later probe returned an unavailable response."
+    "status": "NOT_TESTED",
+    "reason": "This browser regression verifies historical replay only; run verify_live_sources.py separately."
   }
 }

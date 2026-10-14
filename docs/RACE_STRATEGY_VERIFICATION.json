@@ -1,5 +1,5 @@
 {
-  "verified_at": "2026-10-09T20:51:52.699029+00:00",
+  "verified_at": "2026-10-14T16:34:31.271011+00:00",
   "source": "actual archived Singapore SQ and delayed Malaysian GP sessions",
   "checks": [
     {
@@ -9,7 +9,7 @@
     },
     {
       "check": "30x_replay_clock_and_position_buffer_remain_continuous",
-      "moving_updates": 400,
+      "moving_updates": 393,
       "passed": true
     },
     {
@@ -50,7 +50,7 @@
   "limitations": [
     "Tyre wear is a model index for the set; individual wheel wear is unavailable.",
     "Collision reports are not per-component damage measurements.",
-    "On-track forecasts are experimental and have not been calibrated or backtested.",
-    "Free live source availability and missing position channels are unchanged."
+    "On-track forecasts are experimental and uncalibrated; the small descriptive benchmark is in LIVE_BACKTEST_RESULTS.json.",
+    "Active-session live position/car reception remains unverified; see LIVE_SOURCE_VERIFICATION.json."
   ]
 }

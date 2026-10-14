@@ -1,0 +1,43 @@
+{
+  "status": "VERIFIED_HISTORICAL",
+  "verified_at": "2026-10-14T16:32:42.778571+00:00",
+  "two_concurrent_viewer_workers": 2,
+  "frames": 30,
+  "frame_ms": {
+    "p50": 371.5595204994315,
+    "p95": 430.9068329894217,
+    "max": 553.4732090018224
+  },
+  "serialization_ms": {
+    "p50": 7.156125509936828,
+    "p95": 14.663042005850002,
+    "max": 32.200624991673976
+  },
+  "payload_bytes": {
+    "p50": 113122.0,
+    "p95": 113122,
+    "max": 113122
+  },
+  "lock_wait_ms": {
+    "p50": 127.19554199429695,
+    "p95": 234.00762501114514,
+    "max": 302.43683300795965
+  },
+  "lock_held_ms": {
+    "p50": 183.41500000678934,
+    "p95": 223.0524580081692,
+    "max": 305.7911669893656
+  },
+  "traced_allocations_bytes": 5019345,
+  "traced_peak_bytes": 6382280,
+  "checkpoint_bounded_historical_sample": {
+    "gzip_bytes": 441277,
+    "save_ms": 159.96204198745545
+  },
+  "active_live_connections": 0,
+  "limitations": [
+    "Local historical replay contention experiment, allocation tracing adds overhead.",
+    "No broadcast or network end-to-end latency measured; no active live race.",
+    "Checkpoint sample is bounded real historical data, not a live ingestion trace."
+  ]
+}

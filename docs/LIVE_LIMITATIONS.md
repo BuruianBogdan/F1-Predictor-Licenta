@@ -1,0 +1,23 @@
+# Verified limits
+
+- No running session was available during this integration. Real public negotiation/subscription and matching identity were observed after Singapore GP; source timing snapshots were undated. Position.z and CarData.z were not received. Active live coordinates/telemetry are **not validated** and are not promised for the next race.
+- A subscription checkbox/config flag does not confer data access. OpenF1 historical access is free; its live access may require a subscription. This integration uses public unauthenticated timing and historical access only.
+- Compared SignalR projects share the same upstream. One published alternate instance was suspended. Installing multiple clients cannot unlock upstream channels.
+- Field source timestamps can be absent. The UI distinguishes uncertain snapshots and stale values; receipt time is not a substitute. Sparse stable state ages differently from time-series telemetry.
+- A connection started mid-session cannot recover unobserved lap-by-lap sectors from a current best-time snapshot. Published TimingStats sector aggregates are separate from actual completed lap records. Ambiguous sector cycles remain null; no synthetic lap history is created.
+- Recorded history can survive a matching checkpoint restart, but state is STALE until verified fresh observations arrive. A checkpoint is not a complete historical replay. Archive data can contain later official corrections whose original publication time is unknown.
+- Tyre wear is an experimental set-level model index. Four independent wear sensors, grip, carcass temperature, fuel and physical damage measurements are unavailable. Incidents/parts are marked only from explicit reported messages.
+- For 2026, raw aero codes are displayed rather than falsely treating all codes as the pre-2026 DRS system. Unknown codes/values remain explicit.
+- Provisional championship points are never persisted as official points. Full-distance mode is a stated assumption. Stopped-now mode needs observed scheduled distance and two consecutive green leader laps; missing eligibility produces null projected points. Penalties, definitive classification and unresolved countback ties can change rankings.
+- Original strategy v1 is unchanged and uncalibrated. The small four-session historical benchmark is descriptive, contains correlated cutoffs and is not a broad independent validation study. No stronger ML accuracy claim is made.
+- The application is a local single-process research project. Multi-process production deployment would require a shared connection coordinator. Historical source downtime, network latency and external schema changes remain possible.
+- The SignalR parser/transport composition is pinned to the actually verified signalrcore 1.0.2 API. FastF1 historical conversion does not fabricate interval/gap channels if its archive lacks them; strategy coverage can therefore be lower than with OpenF1. Original history/cache downloads are larger than bounded live buffers.
+
+No removed OCR/data-platform code, authenticated F1 TV collection or protected-content access is reintroduced. See the source-verification JSON and historical/browser reports for evidence rather than treating a successful build as proof of live availability.
+
+## Live Data v2 completion
+The October 14 probe received only a finalised historical snapshot, not a running session; real live validation remains PENDING_LIVE_SESSION. The current JSON reports distinguish VERIFIED_HISTORICAL, VERIFIED_FIXTURE and NOT_TESTED. No verified independent live advantage was found in the other GitHub clients; no duplicate adapter was enabled.
+
+Legacy results without a trustworthy observation/publication time cannot supply replay championship totals. Live projections can read already verified local prior results; the current database is not a complete historical publication ledger. New sync versions preserve corrections going forward. Before 2022, half-point stoppage prerequisites are not reconstructed from insufficient timing; STOPPED_NOW remains unverified. 2022 suspension/resumption requirements are distinct from 2023 onward. No claim covers future seasons after the supported 2026 rules.
+
+FastF1 fallback and replay rendering use genuine Abu Dhabi 2024 archive data; only primary-provider failure/browser transport were fixture controlled in the isolated test. OpenF1/FastF1 have different lap/sample counts and missing gap/pit-duration fields. Backend interruption in browser scenarios is fault injected, while checkpoint reload is tested separately; these are not evidence of real upstream recovery during a race.
