@@ -179,7 +179,7 @@ def test_sprint_scoring_and_unknown_green_laps():
 
 
 def projection_frame(race_field,sprint=False):
-    return {'at':utc_stamp('2025-05-01T12:00:00+00:00'),'racing':True,'meta':{'session_key':7,'session_name':'Sprint' if sprint else 'Race'},
+    return {'at':utc_stamp('2025-05-01T12:00:00+00:00'),'racing':True,'mode':'LIVE','meta':{'session_key':7,'session_name':'Sprint' if sprint else 'Race'},
             'rows':[{'driver_number':i,'code':f'D{i}','name':f'Pilot {i}','position':i,'lap':10,'status':None,'best_lap':None} for i in range(1,13)]}
 
 

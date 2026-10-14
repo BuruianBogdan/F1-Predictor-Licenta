@@ -19,6 +19,7 @@ from data_sources.public_timing_provider import PublicTimingFeed,merge_patch,ind
 from data_sources.timing_contract import FeedHealth,TimingSettings,PatchLedger,decode_channel,numeric,utc_stamp,utc_iso
 from services.race_control_checkpoint import TimingCheckpointStore
 from services.race_control_projection_service import RaceControlProjectionService
+from services.race_control_results import confirm_result
 from data_sources.race_control_sources import FastF1RaceControlArchive
 
 CODES={'Practice 1':'FP1','Practice 2':'FP2','Practice 3':'FP3','Sprint Qualifying':'SQ','Sprint Shootout':'SQ','Sprint':'SPRINT','Qualifying':'Q','Race':'R'}
@@ -204,7 +205,7 @@ class RaceControlService:
             return {'state':'AVAILABLE' if count else 'MISSING','last_source_utc':utc_iso(last),'age_seconds':at-last if last else None,'records':count}
         channels['positions']=measured(data['locations']);channels['telemetry']=measured(data['telemetry'])
         return {'schema_version':1,'provider_id':data.get('historical_provider','openf1_historical'),'session_key':data['meta']['session_key'],
-                'state':'HISTORICAL_REPLAY','identity':'VERIFIED','recovered':False,'cutoff_utc':utc_iso(at),'channels':channels,
+                'state':'HISTORICAL_REPLAY','meeting_key':data['meta'].get('meeting_key'),'identity':'VERIFIED','recovered':False,'cutoff_utc':utc_iso(at),'channels':channels,
                 'capabilities':{'timing':channels['laps']['state'],'positions':channels['positions']['state'],'telemetry':channels['telemetry']['state'],
                                 'weather':channels['weather']['state'],'tyres':channels['stints']['state']}}
 
@@ -219,7 +220,7 @@ class RaceControlService:
         if key in self.live:
             result=self.feed_health(key).snapshot();data=self.live_data(key)
             result['buffers']={'position_samples':sum(len(p) for p in data['locations'].values()),'telemetry_samples':sum(len(p) for p in data['telemetry'].values()),'completed_laps':sum(len(p) for p in data.get('public_laps',{}).values()),'events':sum(len(p) for p in data['events'].values())} if data else {}
-            result['checkpoint_error']=self.live[key].get('checkpoint_error');return result
+            result.update(meeting_key=meta.get('meeting_key'),checkpoint_error=self.live[key].get('checkpoint_error'));return result
         recovered=TimingCheckpointStore(self.cache_dir/'observed').load(meta) if self.settings.persistence else None
         if recovered:
             result=recovered['diagnostics']
@@ -227,7 +228,7 @@ class RaceControlService:
             result['capabilities']={name:'STALE' for name in result.get('capabilities',{})}
             return result
         health=FeedHealth(key,self.settings);health.request(PublicTimingFeed.topics)
-        return health.snapshot()
+        return {**health.snapshot(),'meeting_key':meta.get('meeting_key')}
 
     def championship_projection(self,race_id,key,frame=None,mode='REPLAY',at=None,number=None,scoring='FULL_DISTANCE'):
         if not self.settings.projection:return {'status':'DISABLED','note':'Championship projection is disabled in configuration.'}
@@ -461,7 +462,8 @@ class RaceControlService:
         data=self.live_data(key)
         if data is None:return
         now=utcnow().timestamp();source=utc_stamp(date,assume_utc=True);event_date=utc_iso(source);health=self.feed_health(key)
-        if date is not None and (source is None or source>now):health.observe(topic,source,now,valid=False);return
+        earliest=(utc_stamp(data['meta'].get('date_start')) or 0)-1800 # Same tolerance as verified session start context.
+        if date is not None and (source is None or source>now or source<earliest and topic not in ('SessionInfo','DriverList')):health.observe(topic,source,now,valid=False);return
         with self.lock:
             self.live[key]['last_message']=utc_iso(now)
             if topic in ('Position.z','CarData.z'):
@@ -473,7 +475,7 @@ class RaceControlService:
                     for packet in indexed(decoded.get('Position',[])):
                         if not isinstance(packet,dict) or not isinstance(packet.get('Entries'),dict):continue
                         t=utc_stamp(packet.get('Timestamp'),assume_utc=True)
-                        if t is None or t>now:continue
+                        if t is None or t>now or t<earliest:continue
                         for n,p in packet.get('Entries',{}).items():
                             if not str(n).isdigit() or int(n) not in roster or not isinstance(p,dict):continue
                             x=numeric(p.get('X'),-1e7,1e7);y=numeric(p.get('Y'),-1e7,1e7)
@@ -483,10 +485,15 @@ class RaceControlService:
                     for packet in indexed(decoded.get('Entries',[])):
                         if not isinstance(packet,dict) or not isinstance(packet.get('Cars'),dict):continue
                         t=utc_stamp(packet.get('Utc'),assume_utc=True)
-                        if t is None or t>now:continue
+                        if t is None or t>now or t<earliest:continue
                         for n,car in packet.get('Cars',{}).items():
                             if not str(n).isdigit() or int(n) not in roster or not isinstance(car,dict):continue
-                            c=car.get('Channels',{});values={field:numeric(c.get(channel),lo,hi) for field,channel,lo,hi in [('rpm','0',0,20000),('speed','2',0,450),('n_gear','3',0,8),('throttle','4',0,100),('brake','5',0,100),('drs','45',0,14)]}
+                            c=car.get('Channels',{})
+                            if not isinstance(c,dict):continue
+                            values={field:numeric(c.get(channel),lo,hi) for field,channel,lo,hi in [('rpm','0',0,20000),('speed','2',0,450),('n_gear','3',0,8),('throttle','4',0,100),('brake','5',0,100),('drs','45',0,14)]}
+                            if isinstance(c.get('5'),bool):values['brake']=100. if c['5'] else 0.
+                            for field in ('n_gear','drs'):
+                                if values[field] is not None and not values[field].is_integer():values[field]=None
                             if not any(v is not None for v in values.values()):continue
                             self.ingest(key,'car_data',{'driver_number':int(n),'date':utc_iso(t),**values});latest=max(latest or t,t);valid+=1
                 health.observe(topic,latest,now,valid=bool(valid));self.checkpoint(key)
@@ -518,7 +525,7 @@ class RaceControlService:
                 for r in indexed(merged.get('Messages')):
                     if not isinstance(r,dict):continue
                     message_at=utc_stamp(r.get('Utc'),assume_utc=True)
-                    if message_at is None or message_at>now:continue
+                    if message_at is None or message_at>now or message_at<earliest:continue
                     rows.append({'date':utc_iso(message_at),'message':r.get('Message'),'category':r.get('Category'),'flag':r.get('Flag'),'scope':r.get('Scope'),'sector':r.get('Sector'),'driver_number':r.get('RacingNumber'),'message_id':r.get('MessageId'),'source':'existing_public_timing'})
                 data['events']['race_control']=sorted_rows(rows)[-self.settings.max_events:]
             elif topic=='WeatherData':
@@ -647,9 +654,9 @@ class RaceControlService:
         final_status=state.get('SessionInfo',{}).get('SessionStatus')=='Finalised'
         frame['phase']={'Started':'RUNNING','Aborted':'SUSPENDED','Finished':'FINISHED' if final_status else 'FINISHING' if racing else 'BREAK','Ends':'FINISHED' if final_status else 'FINISHING' if racing else 'BREAK','Finalised':'FINISHED'}.get(session_status,frame['phase'])
         if frame['phase']=='FINISHED':frame['flag']='CHEQUERED'
-        # SessionInfo.Finalised provides explicit finality; a provisional P1 is never announced as the winner.
+        # A transport finality flag does not confirm the published result.
         final=data['public_state'].get('SessionInfo',{}).get('SessionStatus')=='Finalised'
-        winner=next((r for r in rows if r['position']==1),None) if final and frame['phase']=='FINISHED' else None
+        winner=None # Finalised describes session closure, not an independently verified winner.
         frame.update(rows=rows,selected=selected,laps=sorted(laps,key=lambda r:r['lap'],reverse=True),personal_best=personal,ideal_lap=sum(personal) if all(finite(v) for v in personal) else None,session_best=best,winner=winner,source='Formula 1 public SignalR',positions_available=bool(data['locations']),telemetry_available=bool(data['telemetry']),_laps_by={int(n):history for n,history in histories.items()},diagnostics=quality,history_note='Lap history and sector bests are collected since connection; previous laps are available in the completed-session replay.')
         return frame
 
@@ -739,6 +746,8 @@ class RaceControlService:
                 values=[strategy._flag_at([],began),strategy._flag_at([],finished)]+strategy.flag_values[bisect.bisect_right(strategy.flag_times,began):bisect.bisect_left(strategy.flag_times,finished)]
                 return 'GREEN' if values and all(f in ('GREEN','CLEAR') for f in values) else 'UNKNOWN'
             frame['laps_for_projection']={str(n):[{'complete':l.get('complete'),'track_flag':observed_flag(l),'lap':l.get('lap')} for l in laps] for n,laps in history.items()}
+            frame['meta']=meta
+            frame['result_confirmation']=confirm_result(race_id,frame,mode)
             frame['scheduled_laps']=data.get('public_state',{}).get('LapCount',{}).get('TotalLaps')
             frame=RaceStrategyService().enrich(frame,data,meta.get('circuit_length_km') or 5.)
             locations={n:series_window(points,frame['at']-8,frame['at']+window if mode=='REPLAY' else frame['at']) for n,points in data['locations'].items()}

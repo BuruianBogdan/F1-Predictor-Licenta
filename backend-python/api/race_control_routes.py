@@ -12,7 +12,7 @@ def prepare(race_id,key):return jsonify(service.prepare(race_id,key,(request.get
 @race_control_bp.get('/race-control/<int:race_id>/<int:key>/status')
 def status(race_id,key):return jsonify(service.status(race_id,key,request.args.get('mode','REPLAY')))
 @race_control_bp.get('/race-control/<int:race_id>/<int:key>/frame')
-def frame(race_id,key):return jsonify(service.frame(race_id,key,request.args.get('at'),request.args.get('driver',type=int),request.args.get('mode','REPLAY'),request.args.get('window',30,type=int)))
+def frame(race_id,key):return jsonify(service.frame(race_id,key,request.args.get('at'),request.args.get('driver',type=int),request.args.get('mode','REPLAY'),request.args.get('window',30,type=int),projection_scoring=request.args.get('scoring','FULL_DISTANCE')))
 
 @race_control_bp.get('/race-control/providers')
 def providers():return jsonify(provider_catalog())

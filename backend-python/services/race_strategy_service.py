@@ -141,8 +141,10 @@ class RaceStrategyService:
     def forecast(self,frame,data,length):
         if not frame['racing']:return {'status':'NOT_A_RACE','note':'Winner strategy estimates run in a Grand Prix or Sprint. Practice / qualifying keep timing and tyre estimates.'}
         active=[r for r in frame['rows'] if r.get('status') not in ('DNF','DNS','DSQ') and not r['condition']['retired'] and r.get('position')]
-        if frame.get('winner') and frame['phase']=='FINISHED':
+        if frame.get('winner') and frame['phase']=='FINISHED' and frame.get('result_confirmation',{}).get('winner_confirmed'):
             winner=frame['winner']['driver_number'];return {'status':'FINAL_RESULT','model_version':self.version,'feature_cutoff':frame['at'],'predictions':[{'driver_number':r['driver_number'],'code':r['code'],'name':r['name'],'color':r['color'],'win_probability':1. if r['driver_number']==winner else 0.,'expected_position':float(r['position'] or 99)} for r in frame['rows']],'note':'Confirmed classification, not a prediction.'}
+        if frame.get('result_confirmation',{}).get('status')=='SESSION_CANCELLED':return {'status':'SESSION_CANCELLED','note':'Session cancelled; no winner forecast.'}
+        if frame['phase']=='FINISHED':return {'status':'PROVISIONAL_RESULT','note':'Session finished. Waiting for a verified published classification; observed P1 is provisional.'}
         if len(active)<2 or not max((r.get('lap') or 0 for r in active),default=0):return {'status':'INSUFFICIENT_TIMING','note':'Waiting for race laps and gaps. Unknown gaps are not replaced with invented distances.'}
         public_total=data.get('public_state',{}).get('LapCount',{}).get('TotalLaps')
         total=int(public_total) if str(public_total).isdigit() else math.ceil((100 if data['meta'].get('session_name')=='Sprint' else 260 if data['meta'].get('circuit_short_name')=='Monte Carlo' else 305)/max(3,length))

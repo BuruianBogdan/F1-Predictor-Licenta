@@ -90,6 +90,8 @@ def test_confirmed_retired_driver_is_excluded_from_future_win_estimate(situation
 
 def test_finished_result_is_not_misrepresented_as_a_prediction(situation):
     frame,data=copy.deepcopy(situation);frame['phase']='FINISHED';frame['winner']=frame['rows'][0]
+    assert estimate((frame,data))['race_forecast']['status']=='PROVISIONAL_RESULT'
+    frame['result_confirmation']={'winner_confirmed':True}
     f=estimate((frame,data))['race_forecast'];assert f['status']=='FINAL_RESULT'
     assert f['predictions'][0]['win_probability']==1.
 

@@ -135,6 +135,7 @@ class FeedHealth:
                 previous = utc_stamp(channel['last_source_utc'])
                 if source is not None and (previous is None or source > previous):
                     channel['last_source_utc'] = utc_iso(source)
+                    channel['last_source_received_utc'] = channel['last_received_utc']
 
     def snapshot(self, now=None):
         now = self.clock() if now is None else now
@@ -147,8 +148,8 @@ class FeedHealth:
                 channel['state'] = ('UNAUTHORIZED' if self.state == 'ACCESS_DENIED' else
                     'STALE' if self.recovered or self.identity=='REJECTED' or age is not None and age > self.settings.stale_seconds else
                     'AVAILABLE' if age is not None else 'PARTIAL' if channel['valid_events'] else 'MISSING')
-                channel['latency_seconds'] = (utc_stamp(channel['last_received_utc'])-source
-                    if source is not None and channel['last_received_utc'] else None)
+                channel['latency_seconds'] = (utc_stamp(channel.get('last_source_received_utc'))-source
+                    if source is not None and channel.get('last_source_received_utc') else None)
                 channel['explanation'] = ('Subscribed, but no observations received' if not channel['packets'] else
                     'Snapshot has no verified source timestamp' if source is None else
                     'Source observations stopped advancing' if channel['state'] == 'STALE' else None)
@@ -171,7 +172,11 @@ class FeedHealth:
                     'session_key': self.session_key, 'state': state, 'transport_state': self.state,
                     'identity': self.identity, 'error': self.error, 'attempts': self.attempts,
                     'last_transport_utc': utc_iso(self.last_transport_at), 'recovered': self.recovered,
-                    'channels': channels, 'capabilities': capabilities, 'cutoff_utc': utc_iso(now)}
+                    'channels': channels, 'capabilities': capabilities, 'cutoff_utc': utc_iso(now),
+                    'last_valid_observation_utc':max((c['last_source_utc'] for c in channels.values() if c['last_source_utc']),default=None),
+                    'last_received_packet_utc':max((c['last_received_utc'] for c in channels.values() if c['last_received_utc']),default=None),
+                    'data_age_seconds':timing.get('age_seconds'),
+                    'latency_seconds':timing.get('latency_seconds')}
 
 
 def validate_identity(info, expected):

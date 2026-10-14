@@ -8,6 +8,7 @@ from models.driver import Driver
 from models.constructor import Constructor
 from models.race_result import RaceResult
 from models.analytics import RaceEntry,SprintResult,QualifyingResult
+from services.race_control_results import published_at
 from data_sources.timing_contract import utc_stamp,utc_iso
 
 FIA_2026='https://www.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_a_general_provisions_-_iss_03_-_2026-06-25.pdf'
@@ -20,6 +21,7 @@ def normalized(value):
 
 
 def points_table(year,sprint=False,completion=None,green_laps=None):
+    if year<2019 or year>2026 or sprint and year<2021:return None
     if sprint:
         table=[3,2,1] if year==2021 else [8,7,6,5,4,3,2,1]
     else:table=GP
@@ -62,24 +64,46 @@ class RaceControlProjectionService:
             if race is None:raise ValueError('Unknown race')
             year=race.season_year
             table=points_table(year,sprint,completion if scoring=='STOPPED_NOW' else None,green_laps)
-            unavailable=scoring=='STOPPED_NOW' and (completion is None or table is None)
+            unavailable=table is None or scoring=='STOPPED_NOW' and (completion is None or year==2022 and frame.get('stoppage_not_resumed') is not True)
             table=[] if unavailable else table
             prior=db.query(Race).filter(Race.season_year==year,Race.round<race.round,Race.results_verified==1).all()
             ids=[r.race_id for r in prior]
-            gp_results=db.query(RaceResult).filter(RaceResult.race_id.in_(ids)).all()
+            from types import SimpleNamespace
+            gp_results=[];unknown_baseline=[]
+            for prior_race in prior:
+                version,has_versions=published_at(db,prior_race.race_id,'R',at)
+                if version:
+                    gp_results.extend(SimpleNamespace(**r,is_gp=True) for r in version.data)
+                elif frame.get('mode')=='LIVE' and not has_versions and (utc_stamp(prior_race.start_at) or float('inf'))<at:
+                    gp_results.extend(db.query(RaceResult).filter_by(race_id=prior_race.race_id).all())
+                else:unknown_baseline.append(prior_race.race_id)
+
             sprint_results=db.query(SprintResult).join(Race,Race.race_id==SprintResult.race_id).filter(Race.season_year==year,Race.round<=race.round).all()
+            sprint_versions=[]
+            for sprint_race in db.query(Race).filter(Race.season_year==year,Race.round<=race.round).all():
+                if sprint_race.race_id==race_id and sprint:continue
+                version,has_versions=published_at(db,sprint_race.race_id,'SPRINT',at)
+                if version:sprint_versions.extend(SimpleNamespace(**r,is_gp=False) for r in version.data)
+                elif not has_versions:
+                    legacy=[r for r in sprint_results if r.race_id==sprint_race.race_id]
+                    if frame.get('mode')=='LIVE':sprint_versions.extend(r for r in legacy if utc_stamp(r.available_at) is not None and utc_stamp(r.available_at)<=at)
+                    elif legacy:unknown_baseline.append('sprint:'+str(sprint_race.race_id))
             # A sprint from this weekend belongs in GP base points exactly once.
-            sprint_results=[r for r in sprint_results if (r.race_id!=race_id or not sprint) and utc_stamp(r.available_at) is not None and utc_stamp(r.available_at)<=at]
+            sprint_results=sprint_versions
             entrants=db.query(RaceEntry).filter_by(race_id=race_id).all()
             drivers={d.driver_id:d for d in db.query(Driver).all()};teams={c.constructor_id:c for c in db.query(Constructor).all()}
             dpoints=defaultdict(float);cpoints=defaultdict(float);dfinishes=defaultdict(Counter);cfinishes=defaultdict(Counter)
             for result in gp_results+sprint_results:
                 dpoints[result.driver_id]+=result.points or 0;cpoints[result.constructor_id]+=result.points or 0
-                if isinstance(result,RaceResult) and result.position:
+                if (isinstance(result,RaceResult) or getattr(result,'is_gp',False)) and result.position and getattr(result,'status',None) not in ('DSQ','Disqualified','DNS','Did not start'):
                     dfinishes[result.driver_id][result.position]+=1;cfinishes[result.constructor_id][result.position]+=1
             dquals=defaultdict(Counter);cquals=defaultdict(Counter)
-            priorquals=db.query(QualifyingResult).filter(QualifyingResult.race_id.in_(ids+[race_id])).all()
-            priorquals=[q for q in priorquals if utc_stamp(q.available_at) is not None and utc_stamp(q.available_at)<=at]
+            priorquals=[]
+            for qualifier_id in ids+[race_id]:
+                version,has_versions=published_at(db,qualifier_id,'Q',at)
+                if version:priorquals.extend(SimpleNamespace(race_id=qualifier_id,**q) for q in version.data)
+                elif frame.get('mode')=='LIVE' and not has_versions:
+                    priorquals.extend(q for q in db.query(QualifyingResult).filter_by(race_id=qualifier_id).all() if utc_stamp(q.available_at) is not None and utc_stamp(q.available_at)<=at)
             entry_teams={(e.race_id,e.driver_id):e.constructor_id for e in db.query(RaceEntry).filter(RaceEntry.race_id.in_(ids+[race_id])).all()}
             for q in priorquals:
                 if q.position:
@@ -96,8 +120,10 @@ class RaceControlProjectionService:
                 return sorted(points,key=lambda i:(-points[i],*[-finishes[i][p] for p in range(1,31)],*([-quals[i][p] for p in range(1,31)] if year>=2026 else []),i))
             for e in entrants:dpoints[e.driver_id]+=0;cpoints[e.constructor_id]+=0
             dbefore={i:p for p,i in enumerate(rank(dpoints,dfinishes,dquals),1)};cbefore={i:p for p,i in enumerate(rank(cpoints,cfinishes,cquals),1)}
-            baseline_source='Verified GP results before round '+str(race.round)+' plus published Sprint results available at cutoff'
-            increment_d=defaultdict(float);increment_c=defaultdict(float);eligibility={}
+            baseline_source='Versioned published GP/Sprint classifications observed at cutoff'
+            baseline_missing=bool(unknown_baseline)
+            mapping_teams={e.driver_id:e.constructor_id for e in entrants}
+            increment_d=defaultdict(float);increment_c=defaultdict(float);eligibility={};unknown_classification=[]
             for row in rows:
                 entry=mapping.get(row['driver_number'])
                 if not entry:continue
@@ -105,6 +131,7 @@ class RaceControlProjectionService:
                 if status=='DNF':
                     laps=row.get('completed_laps',row.get('lap'))
                     eligible=completed is not None and completed>0 and laps is not None and laps>=math.floor(completed*.9)
+                    if completed is None or laps is None:unknown_classification.append(entry.driver_id)
                 eligibility[entry.driver_id]=eligible
                 if eligible and position and not unavailable:
                     increment_d[entry.driver_id]=table[position-1] if 0<position<=len(table) else 0
@@ -142,14 +169,14 @@ class RaceControlProjectionService:
             dtotal={i:p+increment_d[i] for i,p in dpoints.items()};ctotal={i:p+increment_c[i] for i,p in cpoints.items()}
             output_d=[];output_c=[]
             for position,i in enumerate(rank(dtotal,dfinishes,dquals),1):
-                d=drivers[i];output_d.append({'driver_id':i,'code':d.code,'name':f'{d.forename} {d.surname}','position':position,'official_points':dpoints[i],'session_points':None if unavailable else increment_d[i],'projected_points':None if unavailable else dtotal[i],'position_change':dbefore[i]-position})
+                d=drivers[i];output_d.append({'driver_id':i,'code':d.code,'name':f'{d.forename} {d.surname}','position':position,'official_points':None if baseline_missing else dpoints[i],'team':teams[mapping_teams[i]].name if i in mapping_teams else None,'session_points':None if unavailable else increment_d[i],'projected_points':None if unavailable or baseline_missing or unmatched or unknown_classification else dtotal[i],'position_change':dbefore[i]-position})
             for position,i in enumerate(rank(ctotal,cfinishes,cquals),1):
-                output_c.append({'constructor_id':i,'name':teams[i].name,'position':position,'official_points':cpoints[i],'session_points':None if unavailable else increment_c[i],'projected_points':None if unavailable else ctotal[i],'position_change':cbefore[i]-position})
-            return {'status':'UNVERIFIED_STOPPAGE_RULES' if unavailable else 'PARTIAL' if unmatched else 'PROVISIONAL',
+                output_c.append({'constructor_id':i,'name':teams[i].name,'position':position,'official_points':None if baseline_missing else cpoints[i],'session_points':None if unavailable else increment_c[i],'projected_points':None if unavailable or baseline_missing or unmatched or unknown_classification else ctotal[i],'position_change':cbefore[i]-position})
+            return {'status':('UNVERIFIED_STOPPAGE_RULES' if scoring=='STOPPED_NOW' else 'UNSUPPORTED_RULES') if unavailable else 'UNVERIFIED_BASELINE' if baseline_missing else 'PARTIAL' if unmatched or unknown_classification else 'PROVISIONAL',
                     'label':'Championship if race ended now','scoring_mode':scoring,'season':year,'session_key':meta['session_key'],
                     'cutoff_utc':utc_iso(at),'source':frame.get('source','OpenF1 historical observations'),'baseline_source':baseline_source,
-                    'classification':'PROVISIONAL','points_table':table,'fastest_lap_bonus':fastest_bonus,'drivers':output_d,'constructors':output_c,
-                    'unmatched_drivers':unmatched,'rules_url':FIA_2026 if year==2026 else None,
+                    'classification':'PROVISIONAL','baseline_note':'Some legacy results have no verified publication/observation time; totals are withheld.' if baseline_missing else None,'excluded_baseline_races':unknown_baseline,'points_table':table,'fastest_lap_bonus':fastest_bonus,'drivers':output_d,'constructors':output_c,
+                    'unknown_classification':unknown_classification,'unmatched_drivers':unmatched,'rules_url':FIA_2026 if year==2026 else None,
                     'note':('Stopped-now scoring needs scheduled laps and two observed consecutive green leader laps; no points are inferred.' if unavailable else
                             'Full-distance points applied to the current order. Final penalties and classification can change this projection.' if scoring=='FULL_DISTANCE' else
                             'Shortened-distance points applied provisionally; final penalties and classification can change this projection.'),

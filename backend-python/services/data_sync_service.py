@@ -1,5 +1,7 @@
 """Explicit network acquisition, then one atomic transaction per season."""
 from collections import defaultdict
+import hashlib,json
+from models.weekend import WeekendSessionSnapshot
 from datetime import date, timedelta
 from threading import Lock
 from database.db import SessionLocal
@@ -94,6 +96,18 @@ class F1DataSyncService:
                                 if available > utcnow(): raise ProviderError('Future sprint result')
                                 values={'constructor_id':c.constructor_id,'position':integer(raw_result.get('position')),'points':float(raw_result.get('points',0)),'available_at':iso(available)}
                             upsert(model,{'race_id':race.race_id,'driver_id':d.driver_id},values,label)
+                        if rows:
+                            # Keep correction versions with real local observation times.
+                            code={'results':'R','qualifying':'Q','sprints':'SPRINT'}[label]
+                            normalized_rows=[]
+                            for raw_result in rows:
+                                d=driver(raw_result['Driver']);c=constructor(raw_result['Constructor'])
+                                normalized_rows.append({'driver_id':d.driver_id,'driver_code':d.code,'constructor_id':c.constructor_id,'position':integer(raw_result.get('position')),'points':float(raw_result.get('points',0)),'status':raw_result.get('status'),'laps':integer(raw_result.get('laps'))})
+                            content=hashlib.sha256(json.dumps(normalized_rows,sort_keys=True).encode()).hexdigest()
+                            previous=s.query(WeekendSessionSnapshot).filter_by(race_id=race.race_id,session=code).order_by(WeekendSessionSnapshot.id.desc()).first()
+                            if previous is None or previous.content_hash!=content:
+                                observed=iso(utcnow());began=race.start_at if code=='R' else race.qualifying_at if code=='Q' else race.sprint_at
+                                s.add(WeekendSessionSnapshot(race_id=race.race_id,session=code,source=self.provider.name,source_url='https://api.jolpi.ca/ergast/f1/'+str(year)+'/'+str(race.round)+'/'+{'R':'results','Q':'qualifying','SPRINT':'sprint'}[code]+'/',session_start_at=began or observed,session_end_at=observed,observed_at=observed,content_hash=content,data=normalized_rows))
                         if label=='results' and rows:
                             race.is_completed=1;race.results_verified=1;race.race_status='COMPLETED'
                 for race in race_map.values():
