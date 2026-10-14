@@ -34,7 +34,7 @@ def create_app():
     def protect_admin():
         admin_path = request.path.startswith(('/data/', '/model/retrain', '/odds/refresh', '/explanations/', '/news/', '/weekend/', '/race-control/'))
         if request.method == 'POST' and admin_path:
-            if request.path == '/race-control/sessions/refresh' and request.headers.get('Origin') not in (None, os.getenv('FRONTEND_ORIGIN', 'http://127.0.0.1:8090'), 'http://localhost:8090'):
+            if (request.path == '/race-control/sessions/refresh' or request.path.endswith('/stop')) and request.headers.get('Origin') not in (None, os.getenv('FRONTEND_ORIGIN', 'http://127.0.0.1:8090'), 'http://localhost:8090'):
                 return jsonify(error={'code':'CROSS_ORIGIN_ADMIN','message':'Cross-origin refresh is not permitted'}),403
             token = os.getenv('ADMIN_TOKEN', '')
             if token and not hmac.compare_digest(request.headers.get('Authorization',''), 'Bearer ' + token):

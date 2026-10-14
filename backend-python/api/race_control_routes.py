@@ -1,5 +1,6 @@
 from flask import Blueprint,jsonify,request
 from services.race_control_service import RaceControlService
+from data_sources.race_control_sources import provider_catalog
 race_control_bp=Blueprint('race_control',__name__)
 service=RaceControlService()
 @race_control_bp.get('/race-control/<int:race_id>/catalog')
@@ -12,3 +13,16 @@ def prepare(race_id,key):return jsonify(service.prepare(race_id,key,(request.get
 def status(race_id,key):return jsonify(service.status(race_id,key,request.args.get('mode','REPLAY')))
 @race_control_bp.get('/race-control/<int:race_id>/<int:key>/frame')
 def frame(race_id,key):return jsonify(service.frame(race_id,key,request.args.get('at'),request.args.get('driver',type=int),request.args.get('mode','REPLAY'),request.args.get('window',30,type=int)))
+
+@race_control_bp.get('/race-control/providers')
+def providers():return jsonify(provider_catalog())
+@race_control_bp.get('/race-control/health')
+def health():return jsonify({'status':'OK','active_connections':sum(1 for state in service.live.values() if state.get('client') and state.get('status') not in ('DISCONNECTED','SESSION_ENDED','ACCESS_DENIED','PROVIDER_UNAVAILABLE')),'schema_version':1})
+@race_control_bp.get('/race-control/<int:race_id>/<int:key>/diagnostics')
+def diagnostics(race_id,key):return jsonify(service.diagnostics(race_id,key,request.args.get('mode','LIVE'),request.args.get('at',type=float)))
+@race_control_bp.get('/race-control/<int:race_id>/<int:key>/capabilities')
+def capabilities(race_id,key):return jsonify({'session_key':key,'capabilities':service.diagnostics(race_id,key,request.args.get('mode','LIVE'),request.args.get('at',type=float))['capabilities']})
+@race_control_bp.get('/race-control/<int:race_id>/<int:key>/championship-projection')
+def projection(race_id,key):return jsonify(service.championship_projection(race_id,key,mode=request.args.get('mode','REPLAY'),at=request.args.get('at',type=float),number=request.args.get('driver',type=int),scoring=request.args.get('scoring','FULL_DISTANCE')))
+@race_control_bp.post('/race-control/<int:race_id>/<int:key>/stop')
+def stop(race_id,key):return jsonify(service.stop(race_id,key))

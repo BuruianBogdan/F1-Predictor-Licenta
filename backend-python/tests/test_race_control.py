@@ -129,7 +129,7 @@ def test_actual_free_public_snapshot_has_real_sprint_qualifying_order(monkeypatc
     import json
     from pathlib import Path
     service=RaceControlService();data=copy.deepcopy(timeline);data.update(public_state={},public_laps={},source='Formula 1 public SignalR');key=100
-    monkeypatch.setattr(service,'datasets',{key:data});monkeypatch.setattr(service,'live',{key:{'last_message':None}})
+    monkeypatch.setattr(service,'live_datasets',{key:data});monkeypatch.setattr(service,'live',{key:{'last_message':None}})
     fixture=json.loads((Path(__file__).parent/'fixtures/public-sq-keyframe.json').read_text())
     for topic,patch in fixture.items():service.ingest_public(key,topic,patch)
     f=service.public_frame(data,TimingTimeline.frame(data,T+300,3),3)

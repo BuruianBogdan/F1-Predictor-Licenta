@@ -143,7 +143,7 @@ class RaceStrategyService:
         active=[r for r in frame['rows'] if r.get('status') not in ('DNF','DNS','DSQ') and not r['condition']['retired'] and r.get('position')]
         if frame.get('winner') and frame['phase']=='FINISHED':
             winner=frame['winner']['driver_number'];return {'status':'FINAL_RESULT','model_version':self.version,'feature_cutoff':frame['at'],'predictions':[{'driver_number':r['driver_number'],'code':r['code'],'name':r['name'],'color':r['color'],'win_probability':1. if r['driver_number']==winner else 0.,'expected_position':float(r['position'] or 99)} for r in frame['rows']],'note':'Confirmed classification, not a prediction.'}
-        if len(active)<2 or not max((r.get('lap',0) for r in active),default=0):return {'status':'INSUFFICIENT_TIMING','note':'Waiting for race laps and gaps. Unknown gaps are not replaced with invented distances.'}
+        if len(active)<2 or not max((r.get('lap') or 0 for r in active),default=0):return {'status':'INSUFFICIENT_TIMING','note':'Waiting for race laps and gaps. Unknown gaps are not replaced with invented distances.'}
         public_total=data.get('public_state',{}).get('LapCount',{}).get('TotalLaps')
         total=int(public_total) if str(public_total).isdigit() else math.ceil((100 if data['meta'].get('session_name')=='Sprint' else 260 if data['meta'].get('circuit_short_name')=='Monte Carlo' else 305)/max(3,length))
         total_source='public LapCount' if str(public_total).isdigit() else 'nominal race distance / circuit length assumption'
@@ -200,5 +200,11 @@ class RaceStrategyService:
         frame['incidents']=[{**r['condition']['report'],'driver_number':r['driver_number'],'code':r['code'],'name':r['name']} for r in frame['rows'] if r['condition']['report']]
         frame['incidents'].sort(key=lambda r:r.get('reported_at') or '',reverse=True)
         frame['race_forecast']=self.forecast(frame,data,length)
+        if frame['race_forecast'].get('status')=='ESTIMATE':
+            observed=frame.get('diagnostics',{})
+            frame['race_forecast']['input_quality']={'cutoff_utc':frame['at'],'source':frame.get('source',data.get('historical_provider','OpenF1 historical archive')),
+                'channel_capabilities':observed.get('capabilities',{}),'missing_fields_by_driver':{str(r['driver_number']):[k for k in ('gap','compound','tyre_age') if r.get(k) is None] for r in frame['rows']},
+                'source_publication_latency_verified':False,'calibrated_live_model':False}
+            frame['race_forecast']['coverage']['observed_clean_pace']=sum(r['tyre_estimate']['recent_pace_s'] is not None for r in frame['rows'])
         for key in ('_laps_by','_controls','_pits_by'):frame.pop(key,None)
         return frame
